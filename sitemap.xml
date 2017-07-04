@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  
+  <url>
+    <loc>https://ceduquey.github.io/Apibot/docs/terminology/</loc>
+    <lastmod>2017-05-29T18:12:08+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ceduquey.github.io/Apibot/docs/quickstart/</loc>
+    <lastmod>2017-05-15T22:35:08+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ceduquey.github.io/Apibot/blog/welcome/</loc>
+    <lastmod>2017-03-02T21:56:55+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ceduquey.github.io/Apibot/docs/config-node/</loc>
+    <lastmod>2017-05-15T22:35:08+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ceduquey.github.io/Apibot/blog/typography/</loc>
+  </url>
+  
+  <url>
+    <loc>https://ceduquey.github.io/Apibot/docs/js-eval-node/</loc>
+    <lastmod>2017-05-18T10:42:08+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ceduquey.github.io/Apibot/blog/prototyping/</loc>
+    <lastmod>2017-04-02T22:01:15+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ceduquey.github.io/Apibot/docs/eval-node/</loc>
+    <lastmod>2017-05-18T10:42:08+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ceduquey.github.io/Apibot/docs/http-request-node/</loc>
+    <lastmod>2017-05-18T17:08:08+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ceduquey.github.io/Apibot/docs/assert-node/</loc>
+    <lastmod>2017-05-20T14:34:08+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ceduquey.github.io/Apibot/docs/assert-status/</loc>
+    <lastmod>2017-05-19T10:39:08+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ceduquey.github.io/Apibot/docs/assert-body-node/</loc>
+    <lastmod>2017-05-20T14:42:08+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ceduquey.github.io/Apibot/docs/assert-header-node/</loc>
+    <lastmod>2017-05-20T14:42:08+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ceduquey.github.io/Apibot/docs/extract-header-node/</loc>
+    <lastmod>2017-05-21T16:27:08+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ceduquey.github.io/Apibot/docs/extract-body-node/</loc>
+    <lastmod>2017-05-21T12:24:08+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ceduquey.github.io/Apibot/blog/messages/</loc>
+    <lastmod>2017-04-10T16:41:34+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ceduquey.github.io/Apibot/blog/collapse/</loc>
+    <lastmod>2017-04-10T16:42:50+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ceduquey.github.io/Apibot/blog/inline-style/</loc>
+    <lastmod>2017-04-02T21:56:55+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ceduquey.github.io/Apibot/</loc>
+    <lastmod>2017-05-29T18:12:08+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ceduquey.github.io/Apibot/blog/</loc>
+    <lastmod>2017-04-02T21:56:55+01:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://ceduquey.github.io/Apibot/categories/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://ceduquey.github.io/Apibot/company/</loc>
+  </url>
+  
+  <url>
+    <loc>https://ceduquey.github.io/Apibot/categories/design/</loc>
+    <lastmod>2017-04-02T22:01:15+01:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://ceduquey.github.io/Apibot/docs/</loc>
+    <lastmod>2017-05-29T18:12:08+01:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://ceduquey.github.io/Apibot/tags/example/</loc>
+    <lastmod>2017-03-02T21:56:55+01:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://ceduquey.github.io/Apibot/faq/</loc>
+  </url>
+  
+  <url>
+    <loc>https://ceduquey.github.io/Apibot/categories/general/</loc>
+    <lastmod>2017-03-02T21:56:55+01:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://ceduquey.github.io/Apibot/tags/hugo/</loc>
+    <lastmod>2017-04-02T22:01:15+01:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://ceduquey.github.io/Apibot/tags/markdown/</loc>
+    <lastmod>2017-03-02T21:56:55+01:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://ceduquey.github.io/Apibot/password-recovery/</loc>
+  </url>
+  
+  <url>
+    <loc>https://ceduquey.github.io/Apibot/tags/prototype/</loc>
+    <lastmod>2017-04-02T22:01:15+01:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://ceduquey.github.io/Apibot/account/</loc>
+  </url>
+  
+  <url>
+    <loc>https://ceduquey.github.io/Apibot/tags/</loc>
+    <priority>0</priority>
+  </url>
+  
+</urlset>

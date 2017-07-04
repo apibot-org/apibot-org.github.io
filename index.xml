@@ -1,0 +1,1800 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Apibot</title>
+    <link>https://ceduquey.github.io/Apibot/index.xml</link>
+    <description>Recent content on Apibot</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 29 May 2017 18:12:08 +0100</lastBuildDate>
+    <atom:link href="https://ceduquey.github.io/Apibot/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Terminology</title>
+      <link>https://ceduquey.github.io/Apibot/docs/terminology/</link>
+      <pubDate>Mon, 29 May 2017 18:12:08 +0100</pubDate>
+      
+      <guid>https://ceduquey.github.io/Apibot/docs/terminology/</guid>
+      <description>
+
+&lt;h3 id=&#34;scope&#34;&gt;Scope&lt;/h3&gt;
+
+&lt;p&gt;Is the set of variables and objects you have access to.&lt;br /&gt;
+The scope changes inside functions.&lt;/p&gt;
+
+&lt;h3 id=&#34;node&#34;&gt;Node&lt;/h3&gt;
+
+&lt;p&gt;Represent system states, in which a function is apply on the scope.&lt;br /&gt;
+Also known as, vertices or points.&lt;/p&gt;
+
+&lt;h3 id=&#34;edges&#34;&gt;Edges&lt;/h3&gt;
+
+&lt;p&gt;Represent state transitions, connecting at least two nodes.&lt;br /&gt;
+Also known as, arrows, arcs or lines.&lt;/p&gt;
+
+&lt;h3 id=&#34;graph&#34;&gt;Graph&lt;/h3&gt;
+
+&lt;p&gt;Represents the set of pairwise relations between nodes. A graph in this context is made up of nodes which are connected by edges.&lt;br /&gt;
+Also known as scenario.&lt;/p&gt;
+
+&lt;h3 id=&#34;execution&#34;&gt;Execution&lt;/h3&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Quick start</title>
+      <link>https://ceduquey.github.io/Apibot/docs/quickstart/</link>
+      <pubDate>Mon, 15 May 2017 22:35:08 +0100</pubDate>
+      
+      <guid>https://ceduquey.github.io/Apibot/docs/quickstart/</guid>
+      <description>
+
+&lt;p&gt;For this guide, it is necessary to have a Twitter developer account, for more information, please check Twitter developer documentation.&lt;/p&gt;
+
+&lt;h3 id=&#34;getting-the-bearer-token-from-twitter&#34;&gt;Getting the Bearer Token from Twitter&lt;/h3&gt;
+
+&lt;p&gt;We will be applying Twitter documentation regarding &lt;a href=&#34;https://dev.twitter.com/oauth/application-only&#34;&gt;Application-only Authentication&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;First, we will create a new scenario (graph) by pressing the button &lt;strong&gt;new graph&lt;/strong&gt; on the menu bar top of the screen.  If you would like, add a title and a description of your scenario. We should leave the executable box as uncheck, because the scenario is still incomplete.&lt;/p&gt;
+
+
+&lt;figure &gt;
+    
+        &lt;img src=&#34;https://ceduquey.github.io/Apibot/img/docs/new-graph.png&#34; alt=&#34;Creating an Scenario on Apibot&#34; /&gt;
+    
+    
+    &lt;figcaption&gt;
+        &lt;p&gt;
+        Creating an Scenario on Apibot
+        
+            
+        
+        &lt;/p&gt; 
+    &lt;/figcaption&gt;
+    
+&lt;/figure&gt;
+
+
+&lt;p&gt;Next, we will need to add the scope variables, which are, the global variables on our scenario. The node that we use for this is the &lt;strong&gt;config node&lt;/strong&gt;, where we insert these variables. To add the node, go to the left pane and select the &lt;strong&gt;config node&lt;/strong&gt; then click &lt;strong&gt;add&lt;/strong&gt;. It would add the config node on the scren, then select it on the screen, and press the &lt;strong&gt;Add new property&lt;/strong&gt;, where we will enter the global variables, which are:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Consumer Key: Given by Twitter for your application&lt;/li&gt;
+&lt;li&gt;Consumer Secret: Given by Twitter for your application&lt;/li&gt;
+&lt;li&gt;URL: &lt;a href=&#34;https://api.twitter.com&#34;&gt;https://api.twitter.com&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;figure &gt;
+    
+        &lt;img src=&#34;https://ceduquey.github.io/Apibot/img/docs/configuration-node.png&#34; alt=&#34;Configuration node&#34; /&gt;
+    
+    
+    &lt;figcaption&gt;
+        &lt;p&gt;
+        Configuration node
+        
+            
+        
+        &lt;/p&gt; 
+    &lt;/figcaption&gt;
+    
+&lt;/figure&gt;
+
+
+&lt;p&gt;After having the scope variables, is necessary to encode the consumer key and secret. We will concatenate both variables and assigned it to a new variable call &lt;strong&gt;auth&lt;/strong&gt; on the scope. For this we will be using, the &lt;strong&gt;JS Eval node&lt;/strong&gt;, useful to apply logic on our scenario. We insert the JS Eval node, as has been done on previous nodes, then we include a name for the node (e.g., &amp;ldquo;Set Auth&amp;rdquo;), and insert the following code on the function text area:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;(scope)=&amp;gt;{ 
+var auth = btoa(scope.key+&amp;quot;:&amp;quot;+scope.secret);
+scope.auth = &amp;quot;Basic&amp;quot; + auth;
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;You must connect the configuration node to the JS Eval Node, unsing an arrow.&lt;/p&gt;
+
+
+&lt;figure &gt;
+    
+        &lt;img src=&#34;https://ceduquey.github.io/Apibot/img/docs/js-eval-node.png&#34; alt=&#34;JS Eval node&#34; /&gt;
+    
+    
+    &lt;figcaption&gt;
+        &lt;p&gt;
+        JS Eval node
+        
+            
+        
+        &lt;/p&gt; 
+    &lt;/figcaption&gt;
+    
+&lt;/figure&gt;
+
+
+&lt;p&gt;The next step is to obtain the bearer token. As explained on Twitter:&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;The value calculated in step 1 must be exchanged for a bearer token by issuing a request to POST oauth2 / token:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;The request must be a HTTP POST request.&lt;/li&gt;
+&lt;li&gt;The request must include an Authorization header with the value of Basic &lt;base64 encoded value from step 1&gt;.&lt;/li&gt;
+&lt;li&gt;The request must include a Content-Type header with the value of application/x-www-form-urlencoded;charset=UTF-8.&lt;/li&gt;
+&lt;li&gt;The body of the request must be grant_type=client_credentials.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Therefore, you add a &lt;strong&gt;HTTP Request Node&lt;/strong&gt; on the scenario, and connect it to the JS Eval Node, with the following parameters:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Name:&lt;/strong&gt; &lt;em&gt;any name (e.g., /oauth2/token)&lt;/em&gt;. How you would like to call your node&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;URL:&lt;/strong&gt; &lt;em&gt;$(URL)/oauth2/token&lt;/em&gt;. Endpoint for the HTTP request, we are using the scope variable $(URL) that you created on the config node&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Method:&lt;/strong&gt; &lt;em&gt;POST&lt;/em&gt;. HTTP request type, in this case, is POST&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;To include the grant_type on the body, you should add the header content-type, and then the authorization and accept headers. Click on &lt;strong&gt;add new header&lt;/strong&gt;, and add:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;content-type:&lt;/strong&gt; &lt;em&gt;application/x-www-form-urlencoded;charset=UTF-8&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;authorization:&lt;/strong&gt; &lt;em&gt;$(auth)&lt;/em&gt;. Using the scope variable that we transform on the JS Eval Node&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;accept:&lt;/strong&gt; &lt;em&gt;application/json&lt;/em&gt;. The response type&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;figure &gt;
+    
+        &lt;img src=&#34;https://ceduquey.github.io/Apibot/img/docs/http-request-twitter%20oauth2.png&#34; alt=&#34;HTTP Request node&#34; /&gt;
+    
+    
+    &lt;figcaption&gt;
+        &lt;p&gt;
+        HTTP Request node
+        
+            
+        
+        &lt;/p&gt; 
+    &lt;/figcaption&gt;
+    
+&lt;/figure&gt;
+
+
+&lt;p&gt;Now we should have the bearer token, to confirm that the process was successful, you could use a &lt;strong&gt;assert status node&lt;/strong&gt;. Insert a &lt;strong&gt;assert status node&lt;/strong&gt; from the node templates, and fill the fields&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Status from:&lt;/strong&gt; &lt;em&gt;200&lt;/em&gt;. The response status minimum accepted value&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Status to:&lt;/strong&gt; &lt;em&gt;200&lt;/em&gt;. The response status maximum accepted value&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;figure &gt;
+    
+        &lt;img src=&#34;https://ceduquey.github.io/Apibot/img/docs/assert-status-twitter-oauth2.png&#34; alt=&#34;Assert Status&#34; /&gt;
+    
+    
+    &lt;figcaption&gt;
+        &lt;p&gt;
+        Assert Status
+        
+            
+        
+        &lt;/p&gt; 
+    &lt;/figcaption&gt;
+    
+&lt;/figure&gt;
+
+
+&lt;p&gt;By now we could execute the graph, but before doing that, we are going to extract the bearer token and assign it to a variable for later use.
+Therefore, we will add a &lt;strong&gt;Extract Body node&lt;/strong&gt;, with the following parameters:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Property Name:&lt;/strong&gt; &lt;em&gt;token&lt;/em&gt;,&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Function&lt;/strong&gt;:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;(body) =&amp;gt;{
+return &amp;quot;Bearer&amp;quot; + body.access_token;
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;figure &gt;
+    
+        &lt;img src=&#34;https://ceduquey.github.io/Apibot/img/docs/extract-token-twitter-oauth2.png&#34; alt=&#34;Extract Token&#34; /&gt;
+    
+    
+    &lt;figcaption&gt;
+        &lt;p&gt;
+        Extract Token
+        
+            
+        
+        &lt;/p&gt; 
+    &lt;/figcaption&gt;
+    
+&lt;/figure&gt;
+
+
+&lt;p&gt;Now we could execute the scenario and see the results. The graph must be executable (remember from &lt;em&gt;new graph&lt;/em&gt; description). You could do this by pressing on the editor and on the right pane check executable.
+
+&lt;figure &gt;
+    
+        &lt;img src=&#34;https://ceduquey.github.io/Apibot/img/docs/results-bearer-token-oauth2.png&#34; alt=&#34;Results Token&#34; /&gt;
+    
+    
+    &lt;figcaption&gt;
+        &lt;p&gt;
+        Results Token
+        
+            
+        
+        &lt;/p&gt; 
+    &lt;/figcaption&gt;
+    
+&lt;/figure&gt;
+&lt;/p&gt;
+
+&lt;h3 id=&#34;authenticate-api-requests-with-the-bearer-token&#34;&gt;Authenticate API Requests with the Bearer Token&lt;/h3&gt;
+
+&lt;p&gt;Now we will show you one of the functionalities that make Apibot unique and best in its class.&lt;/p&gt;
+
+&lt;p&gt;Create a new graph, go to the left pane and select the previous graph (we called it &lt;em&gt;Twitter Bearer Token&lt;/em&gt;) click on add, it will show up on our new graph screen&lt;/p&gt;
+
+
+&lt;figure &gt;
+    
+        &lt;img src=&#34;https://ceduquey.github.io/Apibot/img/docs/previous-graph-twitter-oauth2.png&#34; alt=&#34;Previous Graph&#34; /&gt;
+    
+    
+    &lt;figcaption&gt;
+        &lt;p&gt;
+        Previous Graph
+        
+            
+        
+        &lt;/p&gt; 
+    &lt;/figcaption&gt;
+    
+&lt;/figure&gt;
+
+
+&lt;p&gt;We will be using the endpoint to ask for a user timeline. Consequently, you should add a HTTP Request node, connect it with an arrow from our previous graph, and fill the parameters&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;URL: $(url)/1.1/statuses/user_timeline.json?count=100&amp;amp;screen_name=twitterapi&lt;/li&gt;
+&lt;li&gt;Method: GET&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;And add a new header:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;authorization: $(token), using the previous variable created on the Extract Body node.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Now you should be able to execute the API Requests&lt;/p&gt;
+
+
+&lt;figure &gt;
+    
+        &lt;img src=&#34;https://ceduquey.github.io/Apibot/img/docs/get-user-timeline.png&#34; alt=&#34;User Timeline&#34; /&gt;
+    
+    
+    &lt;figcaption&gt;
+        &lt;p&gt;
+        User Timeline
+        
+            
+        
+        &lt;/p&gt; 
+    &lt;/figcaption&gt;
+    
+&lt;/figure&gt;
+
+</description>
+    </item>
+    
+    <item>
+      <title>Welcome to Kube</title>
+      <link>https://ceduquey.github.io/Apibot/blog/welcome/</link>
+      <pubDate>Thu, 02 Mar 2017 21:56:55 +0100</pubDate>
+      
+      <guid>https://ceduquey.github.io/Apibot/blog/welcome/</guid>
+      <description>
+
+&lt;h1 id=&#34;welcome-to-kube-an-open-source-documentation-like-theme-for-hugo&#34;&gt;Welcome to Kube – an open source documentation like theme for Hugo&lt;/h1&gt;
+
+&lt;p&gt;Hi there and welcome to kube - my two theme for the static site generator &lt;a href=&#34;https://gohugo.io/&#34;&gt;hugo&lt;/a&gt;. kube is open source and can be found on &lt;a href=&#34;https://kube.elemnts.org/&#34;&gt;kube&lt;/a&gt;. This article is just a demo post and shows you the style of common used elements.&lt;/p&gt;
+
+&lt;p&gt;Bear claw danish chocolate lollipop soufflé jelly. Apple pie chocolate cake
+jelly-o icing bonbon. Gingerbread pastry fruitcake muffin chocolate bar
+cheesecake. Sugar plum bonbon bonbon lemon drops gummies.&lt;/p&gt;
+
+&lt;h2 id=&#34;inline-text-styles-a-link-http-kube-elemnts-org&#34;&gt;Inline 🦄  Text Styles &lt;a href=&#34;http://kube.elemnts.org&#34;&gt;a link&lt;/a&gt;&lt;/h2&gt;
+
+&lt;p&gt;Chocolate tiramisu pastry &lt;a href=&#34;http://zutrinken.com&#34;&gt;a link&lt;/a&gt; cotton candy sesame snaps. Dessert cake chocolate bar &lt;strong&gt;a bold part&lt;/strong&gt; sugar plum bonbon 🐓💨 marshmallow lollipop toffee soufflé. Donut caramels chocolate bar. Oat cake cookie &lt;mark&gt;a marked part&lt;/mark&gt; cheesecake donut. Jelly-o &lt;code&gt;&amp;lt;some&amp;gt; $code&lt;/code&gt; marzipan cake. Bonbon sesame snaps chocolate &lt;em&gt;an italic part&lt;/em&gt; oat cake pudding sweet roll caramels bonbon. Soufflé muffin 👻 gummies sugar plum dessert bonbon bear claw. Sweet ice cream jujubes. Marzipan sugar plum pastry chocolate &lt;kbd&gt;⌘&lt;/kbd&gt;+&lt;kbd&gt;A&lt;/kbd&gt; bar fruitcake. Lollipop lollipop brownie.&lt;/p&gt;
+
+&lt;h2 id=&#34;ordered-unordered-lists&#34;&gt;Ordered &amp;amp; Unordered Lists&lt;/h2&gt;
+
+&lt;p&gt;Cake jelly-o chocolate cake sugar plum carrot cake lollipop bonbon. Jelly beans pudding oat cake pie.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Jelly beans pudding oat cake pie.&lt;/li&gt;
+&lt;li&gt;Cupcake cupcake oat cake candy lemon&lt;/li&gt;
+&lt;li&gt;Drops marzipan icing. Dessert topping croissant fruitcake sesame snaps cotton candy sweet danish&lt;/li&gt;
+&lt;li&gt;Sweet roll sweet sugar plum donut
+
+&lt;ul&gt;
+&lt;li&gt;Bear claw gingerbread cake donut chocolate bar&lt;/li&gt;
+&lt;li&gt;Topping cake fruitcake fruitcake&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Ice cream icing chupa chups cupcake jelly-o candy&lt;/li&gt;
+&lt;li&gt;Croissant jujubes topping tart soufflé pudding
+
+&lt;ul&gt;
+&lt;li&gt;Cheesecake caramels icing&lt;/li&gt;
+&lt;li&gt;Cake jelly-o chocolate cake sugar plum carrot cake lollipop bonbon&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Ice cream icing chupa chups cupcake jelly-o candy. Croissant jujubes topping tart soufflé pudding. Cheesecake caramels icing.&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Drops marzipan icing. Dessert topping croissant fruitcake sesame snaps cotton candy sweet danish&lt;/li&gt;
+&lt;li&gt;Sweet roll sweet sugar plum donut
+
+&lt;ul&gt;
+&lt;li&gt;Bear claw gingerbread cake donut chocolate bar&lt;/li&gt;
+&lt;li&gt;Topping cake fruitcake fruitcake&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Ice cream icing chupa chups cupcake jelly-o candy&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Liquorice marshmallow sweet macaroon. Cotton candy pastry ice cream fruitcake tiramisu jelly beans dragée.&lt;/p&gt;
+
+&lt;dl&gt;&lt;dt&gt;Ice cream&lt;/dt&gt;&lt;dd&gt;icing chupa chups cupcake jelly-o candy. Croissant jujubes topping tart soufflé pudding&lt;/dd&gt;&lt;dt&gt;Cake&lt;/dt&gt;&lt;dd&gt;Jelly beans pudding oat cake pie&lt;/dd&gt;&lt;dt&gt;Drops marzipan icing&lt;/dt&gt;&lt;dd&gt;Cake jelly-o chocolate cake sugar plum carrot cake lollipop&lt;/dd&gt;&lt;/dl&gt;
+
+&lt;p&gt;Soufflé tart topping gummi bears jujubes lollipop ice cream pudding. Apple pie jelly-o powder powder sweet.&lt;/p&gt;
+
+&lt;p&gt;Cake soufflé icing gingerbread topping jujubes. Chocolate cake pudding sweet biscuit cake. Soufflé tart topping gummi bears jujubes lollipop ice cream pudding. Apple pie jelly-o powder powder sweet. Halvah chocolate bar cotton candy sugar plum cake.&lt;/p&gt;
+
+&lt;h2 id=&#34;tables-blockquotes-and-codeblocks&#34;&gt;Tables, Blockquotes and Codeblocks&lt;/h2&gt;
+
+&lt;p&gt;Apple pie chocolate cake jelly-o icing bonbon. Gingerbread pastry fruitcake muffin chocolate bar cheesecake. Sugar plum bonbon bonbon lemon drops gummies.&lt;/p&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;RGB&lt;/th&gt;
+&lt;th&gt;WMYN&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Red&lt;/td&gt;
+&lt;td&gt;Cyan&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;Green&lt;/td&gt;
+&lt;td&gt;Magenta&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;Yellow&lt;/td&gt;
+&lt;td&gt;Black&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;Brownie oat cake tart caramels croissant lollipop pastry soufflé lemon drops. Cotton candy pastry ice cream fruitcake tiramisu jelly beans dragée.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Jelly beans dessert toffee caramels brownie ice cream croissant chupa chups liquorice. Danish sweet roll croissant. Powder sugar plum powder danish wafer cake.&lt;/p&gt;
+
+&lt;p&gt;Candy jelly beans jujubes muffin. Bear claw danish chocolate lollipop soufflé jelly.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Cake soufflé icing gingerbread topping jujubes. Chocolate cake pudding sweet biscuit cake. Soufflé tart topping gummi bears jujubes lollipop ice cream pudding.&lt;/p&gt;
+
+&lt;p&gt;Apple pie jelly-o powder powder sweet. Halvah chocolate bar cotton candy sugar plum cake. Liquorice marshmallow sweet macaroon.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;blockquote&amp;gt;
+    &amp;lt;p&amp;gt;For example.&amp;lt;/p&amp;gt;
+&amp;lt;/blockquote&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Macaroon jelly toffee cheesecake muffin lollipop dragée cake gummies. Cotton candy biscuit cupcake. Cupcake chupa chups carrot cake. Chocolate bar donut gummies wafer pastry sesame snaps oat cake.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;Apple pie chocolate cake jelly-o icing bonbon. Gingerbread pastry fruitcake muffin chocolate bar cheesecake. Sugar plum bonbon bonbon lemon drops gummies. Brownie oat cake tart caramels croissant lollipop pastry soufflé lemon drops. Jelly beans dessert toffee caramels brownie ice cream croissant chupa chups liquorice. Danish sweet roll croissant. Powder sugar plum powder danish wafer cake. Candy jelly beans jujubes muffin. Bear claw danish chocolate lollipop soufflé jelly.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Configuration Node</title>
+      <link>https://ceduquey.github.io/Apibot/docs/config-node/</link>
+      <pubDate>Mon, 15 May 2017 22:35:08 +0100</pubDate>
+      
+      <guid>https://ceduquey.github.io/Apibot/docs/config-node/</guid>
+      <description>
+
+&lt;h2 id=&#34;definition&#34;&gt;Definition&lt;/h2&gt;
+
+&lt;p&gt;The configuration node represents a function that given a scope &lt;em&gt;S&lt;/em&gt; and a list of properties &lt;em&gt;(n0,v0), (n1,v1), &amp;hellip; ,(nk,vk)&lt;/em&gt; returns the scope &lt;em&gt;S&lt;/em&gt; with the new properties.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;f: Scope -&amp;gt; Scope
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;parameter&#34;&gt;Parameter&lt;/h3&gt;
+
+&lt;p&gt;The required parameters are the list of properties, to add to your scope, each property has two (2) values, the name of the property and the value.&lt;/p&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Parameter&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;scope&lt;/td&gt;
+&lt;td&gt;The scope where the new properties will be assigned to&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;(n1, v1)&lt;/td&gt;
+&lt;td&gt;n1: correspond to the name of the first property. &lt;br&gt; v1: correspond to the value assign to n1.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&#34;example&#34;&gt;Example&lt;/h3&gt;
+
+&lt;p&gt;For example, the scope &lt;em&gt;S = {&amp;ldquo;user&amp;rdquo;: &amp;ldquo;Carlos&amp;rdquo; }&lt;/em&gt; and the configuration node defines &lt;em&gt;age:=5&lt;/em&gt; and &lt;em&gt;password := &amp;ldquo;xyz&amp;rdquo;&lt;/em&gt;. A function representation is as follow&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;f = (scope) =&amp;gt;{
+	scope[&amp;quot;age&amp;quot;] = 5;
+	scope[&amp;quot;password&amp;quot;] = &amp;quot;xyz&amp;quot;;
+	return scope;
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;with the scope changing to&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;s = {
+	&amp;quot;user&amp;quot;: &amp;quot;Carlos&amp;quot;,
+	&amp;quot;age&amp;quot;: 5,
+	&amp;quot;password&amp;quot;: &amp;quot;xyz&amp;quot;
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;tutorial&#34;&gt;Tutorial&lt;/h2&gt;
+
+&lt;h3 id=&#34;introduction&#34;&gt;Introduction&lt;/h3&gt;
+
+&lt;p&gt;The configuration node is useful to create scope variables that could be call later on the scenario or when the config node is called. This node, has 1 visible parameter which is the &lt;strong&gt;name&lt;/strong&gt; label to assign a name for the node. It has the option to add new parameters which are the properties, for this you select the node and click on &lt;strong&gt;Add new property&lt;/strong&gt; on the right pane, where you will be able to add a new property (scope variables).&lt;/p&gt;
+
+&lt;p&gt;On the image below we are adding three properties and we will show you how they are use later. We will be using the example of twitter authentication for applications. The three properties are:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Key&lt;/li&gt;
+&lt;li&gt;Secret&lt;/li&gt;
+&lt;li&gt;URL&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;figure &gt;
+    
+        &lt;img src=&#34;https://ceduquey.github.io/Apibot/img/docs/configuration-node.png&#34; alt=&#34;Configuration node&#34; /&gt;
+    
+    
+    &lt;figcaption&gt;
+        &lt;p&gt;
+        Configuration node
+        
+            
+        
+        &lt;/p&gt; 
+    &lt;/figcaption&gt;
+    
+&lt;/figure&gt;
+
+
+&lt;h3 id=&#34;calling-the-property-variables&#34;&gt;Calling the Property Variables&lt;/h3&gt;
+
+&lt;p&gt;Now we will be calling the variables on a &amp;ldquo;JS Eval Node&amp;rdquo;, on this node we will be doing a change on the scope. We will create an auth variable, and this variable will concatenate the Key and Secret variable created before, with a &amp;ldquo;:&amp;rdquo; in the middle. As shown on the following code:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;(scope)=&amp;gt;{ 
+var auth = btoa(scope.key+&amp;quot;:&amp;quot;+scope.secret);
+scope.auth = &amp;quot;Basic&amp;quot; + auth;
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;As you can see we are calling the variable key, and secret as &lt;em&gt;scope.key&lt;/em&gt; and &lt;em&gt;scope.secret&lt;/em&gt;.&lt;/p&gt;
+
+
+&lt;figure &gt;
+    
+        &lt;img src=&#34;https://ceduquey.github.io/Apibot/img/docs/js-eval-node.png&#34; alt=&#34;JS Eval node&#34; /&gt;
+    
+    
+    &lt;figcaption&gt;
+        &lt;p&gt;
+        JS Eval node
+        
+            
+        
+        &lt;/p&gt; 
+    &lt;/figcaption&gt;
+    
+&lt;/figure&gt;
+
+
+&lt;p&gt;The variables can also be called on a parameter input, as it shows on the image below, we will be doing a POST HTTP request. We will be using the property URL, to call the endpoint &lt;a href=&#34;https://api.twitter.com/oauth2/token&#34;&gt;https://api.twitter.com/oauth2/token&lt;/a&gt;, for this we do the following:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;$(url)&lt;/strong&gt;/oauth2/token&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;figure &gt;
+    
+        &lt;img src=&#34;https://ceduquey.github.io/Apibot/img/docs/http-request-twitter%20oauth2.png&#34; alt=&#34;HTTP Request node&#34; /&gt;
+    
+    
+    &lt;figcaption&gt;
+        &lt;p&gt;
+        HTTP Request node
+        
+            
+        
+        &lt;/p&gt; 
+    &lt;/figcaption&gt;
+    
+&lt;/figure&gt;
+
+</description>
+    </item>
+    
+    <item>
+      <title>Typography with kube</title>
+      <link>https://ceduquey.github.io/Apibot/blog/typography/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ceduquey.github.io/Apibot/blog/typography/</guid>
+      <description>&lt;p&gt;&lt;h3 class=&#34;section-head&#34; id=&#34;h-get-started&#34;&gt;&lt;a href=&#34;#h-get-started&#34;&gt;Get Started&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Typography of Kube based on the 4px horizontal grid, it means that for the headers, paragraphs, quotes and any other texts chosen are a combination of line-height, that fit into the 4px grid and help set the horizontal rhythm of design by default.&lt;/p&gt;
+&lt;figure&gt;
+  &lt;img alt=&#34;4px horizontal rhythm&#34; height=&#34;180&#34; src=&#34;https://ceduquey.github.io/Apibot/img/kube/typography/01.png&#34; width=&#34;676&#34;&gt;
+  &lt;figcaption&gt;
+    4px grid for typography - the magic of the horizontal rhythm
+  &lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;With this feature, you can quickly and easily make a solid and harmonious-looking website and UI design. You do not need to do complicated calculations to find the size and proportions of the text baseline, no need to look for the magic formula to build a horizontal rhythm. Magic is already in Kube.&lt;/p&gt;
+&lt;p&gt;You can use all the default settings of typography and it will always look balanced. But also you can easily change any font sizes, just try to set the value of line-height fold for 4px and your texts will still look great.&lt;/p&gt;
+&lt;p&gt;Additional balance and harmony, creates a classic typography scale, used in Kube.&lt;/p&gt;
+&lt;figure&gt;
+  &lt;img alt=&#34;the typography scale&#34; height=&#34;140&#34; src=&#34;https://ceduquey.github.io/Apibot/img/kube/typography/02.png&#34; width=&#34;520&#34;&gt;
+  &lt;figcaption&gt;
+    The typography scale helps to build a balance between the size of headings and text elements
+  &lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;h3 class=&#34;section-head&#34; id=&#34;h-headings&#34;&gt;&lt;a href=&#34;#h-headings&#34;&gt;Headings&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Use h1-h6 tags or &lt;code&gt;.h1-.h6&lt;/code&gt; classes to define headers and &lt;code&gt;class=&amp;ldquo;title&amp;rdquo;&lt;/code&gt; for the title, which is suitable for the most important inscriptions, for example, in the hero or covers.&lt;/p&gt;
+&lt;div class=&#34;example&#34;&gt;
+  &lt;h1 class=&#34;title&#34;&gt;Title&lt;/h1&gt;
+  &lt;h1&gt;Heading 1&lt;/h1&gt;
+  &lt;h2&gt;Heading 2&lt;/h2&gt;
+  &lt;h3&gt;Heading 3&lt;/h3&gt;
+  &lt;h4&gt;Heading 4&lt;/h4&gt;
+  &lt;h5&gt;Heading 5&lt;/h5&gt;
+  &lt;h6&gt;Heading 6&lt;/h6&gt;
+  &lt;pre class=&#34;code&#34;&gt;&lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;&lt;span class=&#34;hljs-name&#34;&gt;h1&lt;/span&gt; &lt;span class=&#34;hljs-attr&#34;&gt;class&lt;/span&gt;=&lt;span class=&#34;hljs-string&#34;&gt;&amp;ldquo;title&amp;rdquo;&lt;/span&gt;&amp;gt;&lt;/span&gt;&amp;hellip;&lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;/&lt;span class=&#34;hljs-name&#34;&gt;h1&lt;/span&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;&lt;span class=&#34;hljs-name&#34;&gt;h1&lt;/span&gt;&amp;gt;&lt;/span&gt;&amp;hellip;&lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;/&lt;span class=&#34;hljs-name&#34;&gt;h1&lt;/span&gt;&amp;gt;&lt;/span&gt;
+&amp;hellip;
+&lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;&lt;span class=&#34;hljs-name&#34;&gt;h6&lt;/span&gt;&amp;gt;&lt;/span&gt;&amp;hellip;&lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;/&lt;span class=&#34;hljs-name&#34;&gt;h6&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;h3 class=&#34;section-head&#34; id=&#34;h-paragraphs&#34;&gt;&lt;a href=&#34;#h-paragraphs&#34;&gt;Paragraphs&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;The base pragraph has an ideal ratio of font size and baseline. This text is easy to read in most cases.&lt;/p&gt;
+&lt;div class=&#34;example&#34;&gt;
+  &lt;p class=&#34;section-item-desc&#34;&gt;16px/24px&lt;/p&gt;
+  &lt;p&gt;By the same illusion which lifts the horizon of the sea to the level of the spectator on a hillside, the sable cloud beneath was dished out, and the car seemed to float in the middle of an immense dark sphere, whose upper half was strewn with silver.&lt;/p&gt;
+  &lt;pre class=&#34;code&#34;&gt;&lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;&lt;span class=&#34;hljs-name&#34;&gt;p&lt;/span&gt;&amp;gt;&lt;/span&gt;&amp;hellip;&lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;/&lt;span class=&#34;hljs-name&#34;&gt;p&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;In special cases, you can use modifiers which increase or decrease the text size. It is useful for building a variety of websites and UI, when you need to make a lead text or signatures with a small font size .&lt;/p&gt;
+&lt;div class=&#34;example&#34;&gt;
+  &lt;p class=&#34;section-item-desc&#34;&gt;20px/32px&lt;/p&gt;
+  &lt;p class=&#34;large&#34;&gt;By the same illusion which lifts the horizon of the sea to the level of the spectator on a hillside, the sable cloud beneath was dished out, and the car seemed to float in the middle of an immense dark sphere, whose upper half was strewn with silver.&lt;/p&gt;
+  &lt;pre class=&#34;code&#34;&gt;&lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;&lt;span class=&#34;hljs-name&#34;&gt;p&lt;/span&gt; &lt;span class=&#34;hljs-attr&#34;&gt;class&lt;/span&gt;=&lt;span class=&#34;hljs-string&#34;&gt;&amp;ldquo;large&amp;rdquo;&lt;/span&gt;&amp;gt;&lt;/span&gt;&amp;hellip;&lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;/&lt;span class=&#34;hljs-name&#34;&gt;p&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div class=&#34;example&#34;&gt;
+  &lt;p class=&#34;section-item-desc&#34;&gt;18px/28px&lt;/p&gt;
+  &lt;p class=&#34;big&#34;&gt;By the same illusion which lifts the horizon of the sea to the level of the spectator on a hillside, the sable cloud beneath was dished out, and the car seemed to float in the middle of an immense dark sphere, whose upper half was strewn with silver.&lt;/p&gt;
+  &lt;pre class=&#34;code&#34;&gt;&lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;&lt;span class=&#34;hljs-name&#34;&gt;p&lt;/span&gt; &lt;span class=&#34;hljs-attr&#34;&gt;class&lt;/span&gt;=&lt;span class=&#34;hljs-string&#34;&gt;&amp;ldquo;big&amp;rdquo;&lt;/span&gt;&amp;gt;&lt;/span&gt;&amp;hellip;&lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;/&lt;span class=&#34;hljs-name&#34;&gt;p&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div class=&#34;example&#34;&gt;
+  &lt;p class=&#34;section-item-desc&#34;&gt;14px/20px&lt;/p&gt;
+  &lt;p class=&#34;small&#34;&gt;By the same illusion which lifts the horizon of the sea to the level of the spectator on a hillside, the sable cloud beneath was dished out, and the car seemed to float in the middle of an immense dark sphere, whose upper half was strewn with silver.&lt;/p&gt;
+  &lt;pre class=&#34;code&#34;&gt;&lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;&lt;span class=&#34;hljs-name&#34;&gt;p&lt;/span&gt; &lt;span class=&#34;hljs-attr&#34;&gt;class&lt;/span&gt;=&lt;span class=&#34;hljs-string&#34;&gt;&amp;ldquo;small&amp;rdquo;&lt;/span&gt;&amp;gt;&lt;/span&gt;&amp;hellip;&lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;/&lt;span class=&#34;hljs-name&#34;&gt;p&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div class=&#34;example&#34;&gt;
+  &lt;p class=&#34;section-item-desc&#34;&gt;12px/20px&lt;/p&gt;
+  &lt;p class=&#34;smaller&#34;&gt;By the same illusion which lifts the horizon of the sea to the level of the spectator on a hillside, the sable cloud beneath was dished out, and the car seemed to float in the middle of an immense dark sphere, whose upper half was strewn with silver.&lt;/p&gt;
+  &lt;pre class=&#34;code&#34;&gt;&lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;&lt;span class=&#34;hljs-name&#34;&gt;p&lt;/span&gt; &lt;span class=&#34;hljs-attr&#34;&gt;class&lt;/span&gt;=&lt;span class=&#34;hljs-string&#34;&gt;&amp;ldquo;smaller&amp;rdquo;&lt;/span&gt;&amp;gt;&lt;/span&gt;&amp;hellip;&lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;/&lt;span class=&#34;hljs-name&#34;&gt;p&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;h3 class=&#34;section-head&#34; id=&#34;h-columns&#34;&gt;&lt;a href=&#34;#h-columns&#34;&gt;Columns&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Kube has three classes of &lt;code&gt;.columns-2&lt;/code&gt; through &lt;code&gt;.columns-4&lt;/code&gt; to create a multi-column layout. All multi-column layouts will be in a single column on mobile.&lt;/p&gt;
+&lt;div class=&#34;example&#34;&gt;
+  &lt;p class=&#34;section-item-desc&#34;&gt;2 columns&lt;/p&gt;
+  &lt;div class=&#34;columns-2&#34;&gt;
+    &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.&lt;/p&gt;
+  &lt;/div&gt;
+  &lt;pre class=&#34;code skip&#34;&gt;&lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;&lt;span class=&#34;hljs-name&#34;&gt;div&lt;/span&gt; &lt;span class=&#34;hljs-attr&#34;&gt;class&lt;/span&gt;=&lt;span class=&#34;hljs-string&#34;&gt;&amp;ldquo;columns-2&amp;rdquo;&lt;/span&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;&lt;span class=&#34;hljs-name&#34;&gt;p&lt;/span&gt;&amp;gt;&lt;/span&gt;&amp;hellip;&lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;/&lt;span class=&#34;hljs-name&#34;&gt;p&lt;/span&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;/&lt;span class=&#34;hljs-name&#34;&gt;div&lt;/span&gt;&amp;gt;&lt;/span&gt;
+&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div class=&#34;example&#34;&gt;
+  &lt;p class=&#34;section-item-desc&#34;&gt;3 columns&lt;/p&gt;
+  &lt;div class=&#34;columns-3&#34;&gt;
+    &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.&lt;/p&gt;
+  &lt;/div&gt;
+  &lt;pre class=&#34;code skip&#34;&gt;&lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;&lt;span class=&#34;hljs-name&#34;&gt;div&lt;/span&gt; &lt;span class=&#34;hljs-attr&#34;&gt;class&lt;/span&gt;=&lt;span class=&#34;hljs-string&#34;&gt;&amp;ldquo;columns-3&amp;rdquo;&lt;/span&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;&lt;span class=&#34;hljs-name&#34;&gt;p&lt;/span&gt;&amp;gt;&lt;/span&gt;&amp;hellip;&lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;/&lt;span class=&#34;hljs-name&#34;&gt;p&lt;/span&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;/&lt;span class=&#34;hljs-name&#34;&gt;div&lt;/span&gt;&amp;gt;&lt;/span&gt;
+&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div class=&#34;example&#34;&gt;
+  &lt;p class=&#34;section-item-desc&#34;&gt;4 columns&lt;/p&gt;
+  &lt;div class=&#34;columns-4&#34;&gt;
+    &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.&lt;/p&gt;
+  &lt;/div&gt;
+  &lt;pre class=&#34;code skip&#34;&gt;&lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;&lt;span class=&#34;hljs-name&#34;&gt;div&lt;/span&gt; &lt;span class=&#34;hljs-attr&#34;&gt;class&lt;/span&gt;=&lt;span class=&#34;hljs-string&#34;&gt;&amp;ldquo;columns-4&amp;rdquo;&lt;/span&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;&lt;span class=&#34;hljs-name&#34;&gt;p&lt;/span&gt;&amp;gt;&lt;/span&gt;&amp;hellip;&lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;/&lt;span class=&#34;hljs-name&#34;&gt;p&lt;/span&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;/&lt;span class=&#34;hljs-name&#34;&gt;div&lt;/span&gt;&amp;gt;&lt;/span&gt;
+&lt;/pre&gt;
+&lt;/div&gt;
+&lt;h3 class=&#34;section-head&#34; id=&#34;h-quotes&#34;&gt;&lt;a href=&#34;#h-quotes&#34;&gt;Quotes&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Quotes in the text stand out for contrast and added variety to the text. In the quotes you can mark text as a paragraph tag and without it.&lt;/p&gt;
+&lt;div class=&#34;example&#34;&gt;
+  &lt;blockquote&gt;
+    &lt;p&gt;No, she&amp;rsquo;ll probably make me do it. Goodbye, friends. I never thought I&amp;rsquo;d die like this. But I always really hoped. I saw you with those two &amp;ldquo;ladies of the evening&amp;rdquo; at Elzars. Explain that. I never loved you.&lt;/p&gt;
+  &lt;/blockquote&gt;
+  &lt;pre class=&#34;code&#34;&gt;&lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;&lt;span class=&#34;hljs-name&#34;&gt;blockquote&lt;/span&gt;&amp;gt;&lt;/span&gt;&amp;hellip;&lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;/&lt;span class=&#34;hljs-name&#34;&gt;blockquote&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;Use &lt;code&gt;small&lt;/code&gt; tag for attribution. It&amp;rsquo;s a prefer way for semantic code.&lt;/p&gt;
+&lt;div class=&#34;example&#34;&gt;
+  &lt;blockquote&gt;
+    &lt;p&gt;Who&amp;rsquo;s brave enough to fly into something we all keep calling a death sphere? Yes. You gave me a dollar and some candy. I just want to talk. It has nothing to do with mating. Fry, that doesn&amp;rsquo;t make sense.&lt;/p&gt;&lt;small&gt;— Bender&lt;/small&gt;
+  &lt;/blockquote&gt;
+  &lt;pre class=&#34;code skip&#34;&gt;&lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;&lt;span class=&#34;hljs-name&#34;&gt;blockquote&lt;/span&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;&lt;span class=&#34;hljs-name&#34;&gt;p&lt;/span&gt;&amp;gt;&lt;/span&gt;Quotation content&lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;/&lt;span class=&#34;hljs-name&#34;&gt;p&lt;/span&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;&lt;span class=&#34;hljs-name&#34;&gt;small&lt;/span&gt;&amp;gt;&lt;/span&gt;Author attribution&lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;/&lt;span class=&#34;hljs-name&#34;&gt;small&lt;/span&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;/&lt;span class=&#34;hljs-name&#34;&gt;blockquote&lt;/span&gt;&amp;gt;&lt;/span&gt;
+&lt;/pre&gt;
+&lt;/div&gt;
+&lt;h3 class=&#34;section-head&#34; id=&#34;h-pre-formatted&#34;&gt;&lt;a href=&#34;#h-pre-formatted&#34;&gt;Pre-formatted&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Pre-formatted text most often used to display code snippets or other text elements, for which you wish to preserve the exact formatting they&amp;rsquo;ve got.&lt;/p&gt;
+&lt;div class=&#34;example&#34;&gt;
+  &lt;pre&gt;Function.prototype.inherits = function(parent)
+{
+    for (var key in parent.prototype)
+    {
+        this.prototype[key] = parent.prototype[key];
+    }
+};
+&lt;/pre&gt;
+  &lt;pre class=&#34;code&#34;&gt;&lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;&lt;span class=&#34;hljs-name&#34;&gt;pre&lt;/span&gt;&amp;gt;&lt;/span&gt;&amp;hellip;&lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;/&lt;span class=&#34;hljs-name&#34;&gt;pre&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;You feel free to use &lt;code&gt;code&lt;/code&gt; tag inside &lt;code&gt;pre&lt;/code&gt;.&lt;/p&gt;
+&lt;div class=&#34;example&#34;&gt;
+  &lt;pre class=&#34;demo-pre&#34;&gt;&lt;code&gt;Function.prototype.inherits = function(parent)
+{
+    for (var key in parent.prototype)
+    {
+        this.prototype[key] = parent.prototype[key];
+    }
+};
+&lt;/code&gt;&lt;/pre&gt;
+  &lt;pre class=&#34;code&#34;&gt;&amp;lt;pre&amp;gt;&lt;span class=&#34;xml&#34;&gt;&lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;&lt;span class=&#34;hljs-name&#34;&gt;code&lt;/span&gt;&amp;gt;&lt;/span&gt;&amp;hellip;&lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;/&lt;span class=&#34;hljs-name&#34;&gt;code&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;xml&#34;&gt;&lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;/&lt;span class=&#34;hljs-name&#34;&gt;pre&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;h3 class=&#34;section-head&#34; id=&#34;h-inline-elements&#34;&gt;&lt;a href=&#34;#h-inline-elements&#34;&gt;Inline Elements&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Kube features various inline formatting elements. They all have their own semantic meaning, but you&amp;rsquo;re free to use them just for their style.&lt;/p&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Example&lt;/th&gt;
+      &lt;th&gt;Tag&lt;/th&gt;
+      &lt;th&gt;Example&lt;/th&gt;
+      &lt;th&gt;Tag&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;abbr title=&#34;Cascading Style Sheets&#34;&gt;CSS&lt;/abbr&gt;&lt;/td&gt;
+      &lt;td class=&#34;col-6&#34;&gt;&lt;code&gt;&amp;lt;abbr&amp;gt;&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;cite&gt;Cite&lt;/cite&gt;&lt;/td&gt;
+      &lt;td class=&#34;col-6&#34;&gt;&lt;code&gt;&amp;lt;cite&amp;gt;&lt;/code&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code&gt;Code&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;code&gt;&amp;lt;code&amp;gt;&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;samp&gt;Sample&lt;/samp&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;code&gt;&amp;lt;samp&amp;gt;&lt;/code&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;var&gt;Variable&lt;/var&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;code&gt;&amp;lt;var&amp;gt;&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;mark&gt;Mark&lt;/mark&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;code&gt;&amp;lt;mark&amp;gt;&lt;/code&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;kbd&gt;Shortcut&lt;/kbd&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;code&gt;&amp;lt;kbd&amp;gt;&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;
+        &lt;del&gt;Deleted&lt;/del&gt;
+      &lt;/td&gt;
+      &lt;td&gt;&lt;code&gt;&amp;lt;del&amp;gt;&lt;/code&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;i&gt;Italic&lt;/i&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;code&gt;&amp;lt;i&amp;gt;&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;em&gt;Emphasis&lt;/em&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;code&gt;&amp;lt;em&amp;gt;&lt;/code&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Highlighted&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;code&gt;&amp;lt;strong&amp;gt;&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;b&gt;Bold&lt;/b&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;code&gt;&amp;lt;b&amp;gt;&lt;/code&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;x&lt;sup&gt;superscript&lt;/sup&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;code&gt;&amp;lt;sup&amp;gt;&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;x&lt;sub&gt;subscript&lt;/sub&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;code&gt;&amp;lt;sub&amp;gt;&lt;/code&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;small&gt;Small&lt;/small&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;code&gt;&amp;lt;small&amp;gt;&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;
+        &lt;ins&gt;Inserted&lt;/ins&gt;
+      &lt;/td&gt;
+      &lt;td&gt;&lt;code&gt;&amp;lt;ins&amp;gt;&lt;/code&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 class=&#34;section-head&#34; id=&#34;h-modifiers&#34;&gt;&lt;a href=&#34;#h-modifiers&#34;&gt;Modifiers&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Modifiers - a set of helper classes for creating accents in the text and for the solution of useful tasks without writing CSS code, for example, the alignment of the text in the center.&lt;/p&gt;
+&lt;p&gt;Modifiers can be applied to any tags as inline elements, links or block tags.&lt;/p&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Example&lt;/th&gt;
+      &lt;th&gt;Modifier&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;span class=&#34;muted&#34;&gt;Muted&lt;/span&gt;&lt;/td&gt;
+      &lt;td class=&#34;col-12&#34;&gt;&lt;code&gt;.muted&lt;/code&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;
+        &lt;a class=&#34;muted&#34; href=&#34;#&#34;&gt;Muted link&lt;/a&gt;
+      &lt;/td&gt;
+      &lt;td&gt;&lt;code&gt;.muted&lt;/code&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;
+        &lt;a class=&#34;black&#34; href=&#34;#&#34;&gt;Black link&lt;/a&gt;
+      &lt;/td&gt;
+      &lt;td&gt;&lt;code&gt;.black&lt;/code&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;span class=&#34;highlight&#34;&gt;Highlight&lt;/span&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;code&gt;.highlight&lt;/code&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;span class=&#34;upper&#34;&gt;upper&lt;/span&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;code&gt;.upper&lt;/code&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;span class=&#34;lower&#34;&gt;LOWER&lt;/span&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;code&gt;.lower&lt;/code&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;span class=&#34;italic&#34;&gt;Italic&lt;/span&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;code&gt;.italic&lt;/code&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;span class=&#34;strong&#34;&gt;Strong&lt;/span&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;code&gt;.strong&lt;/code&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong class=&#34;normal&#34;&gt;Not strong&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;code&gt;.normal&lt;/code&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;span class=&#34;monospace&#34;&gt;Monospace&lt;/span&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;code&gt;.monospace&lt;/code&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;span class=&#34;nowrap&#34;&gt;Nowrap&lt;/span&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;code&gt;.nowrap&lt;/code&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td class=&#34;nowrap&#34;&gt;Remove margin bottom&lt;/td&gt;
+      &lt;td&gt;&lt;code&gt;.end&lt;/code&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;span class=&#34;highlight&#34;&gt;Highlight&lt;/span&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;code&gt;.highlight&lt;/code&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;span class=&#34;small&#34;&gt;Small&lt;/span&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;code&gt;.small&lt;/code&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;span class=&#34;smaller&#34;&gt;Smaller&lt;/span&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;code&gt;.smaller&lt;/code&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;span class=&#34;large&#34;&gt;Large&lt;/span&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;code&gt;.large&lt;/code&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;span class=&#34;big&#34;&gt;Big&lt;/span&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;code&gt;.big&lt;/code&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td class=&#34;text-left&#34;&gt;Text left&lt;/td&gt;
+      &lt;td&gt;&lt;code&gt;.text-left&lt;/code&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td class=&#34;text-center&#34;&gt;Text center&lt;/td&gt;
+      &lt;td&gt;&lt;code&gt;.text-center&lt;/code&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td class=&#34;text-right&#34;&gt;Text right&lt;/td&gt;
+      &lt;td&gt;&lt;code&gt;.text-right&lt;/code&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 class=&#34;section-head&#34; id=&#34;h-figure&#34;&gt;&lt;a href=&#34;#h-figure&#34;&gt;Figure&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;A figure tag features an image, a video or a code plus a caption. It is a good accessibility practice. It also helps serve responsive video to various devices when you wrap video into &lt;code&gt;.video-container&lt;/code&gt; class.&lt;/p&gt;
+&lt;h5&gt;Images&lt;/h5&gt;
+&lt;figure&gt;
+  &lt;img alt=&#34;Image&#34; height=&#34;533&#34; src=&#34;https://ceduquey.github.io/Apibot/img/favicons/logo-384x384.png&#34; width=&#34;800&#34;&gt;
+  &lt;figcaption&gt;
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit&amp;hellip;
+  &lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p class=&#34;end&#34;&gt;&lt;var&gt;HTML&lt;/var&gt;&lt;/p&gt;
+&lt;pre class=&#34;code skip&#34;&gt;&lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;&lt;span class=&#34;hljs-name&#34;&gt;figure&lt;/span&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;&lt;span class=&#34;hljs-name&#34;&gt;img&lt;/span&gt; &lt;span class=&#34;hljs-attr&#34;&gt;src&lt;/span&gt;=&lt;span class=&#34;hljs-string&#34;&gt;&amp;ldquo;image.jpg&amp;rdquo;&lt;/span&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;&lt;span class=&#34;hljs-name&#34;&gt;figcaption&lt;/span&gt;&amp;gt;&lt;/span&gt;&amp;hellip;&lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;/&lt;span class=&#34;hljs-name&#34;&gt;figcaption&lt;/span&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;/&lt;span class=&#34;hljs-name&#34;&gt;figure&lt;/span&gt;&amp;gt;&lt;/span&gt;
+&lt;/pre&gt;
+&lt;h5&gt;Video&lt;/h5&gt;
+&lt;figure&gt;
+  &lt;div class=&#34;video-container&#34;&gt;
+    &lt;iframe allowfullscreen frameborder=&#34;0&#34; height=&#34;315&#34; src=&#34;https://www.youtube.com/embed/nywsA8wCCfY&#34; width=&#34;560&#34;&gt;&lt;/iframe&gt;
+  &lt;/div&gt;
+  &lt;figcaption&gt;
+    Journey Through The Ice | National Geographic
+  &lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p class=&#34;end&#34;&gt;&lt;var&gt;HTML&lt;/var&gt;&lt;/p&gt;
+&lt;pre class=&#34;code skip&#34;&gt;&lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;&lt;span class=&#34;hljs-name&#34;&gt;figure&lt;/span&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;&lt;span class=&#34;hljs-name&#34;&gt;div&lt;/span&gt; &lt;span class=&#34;hljs-attr&#34;&gt;class&lt;/span&gt;=&lt;span class=&#34;hljs-string&#34;&gt;&amp;ldquo;video-container&amp;rdquo;&lt;/span&gt;&amp;gt;&lt;/span&gt;
+        &lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;&lt;span class=&#34;hljs-name&#34;&gt;iframe&lt;/span&gt;&amp;gt;&lt;/span&gt;&amp;hellip;&lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;/&lt;span class=&#34;hljs-name&#34;&gt;iframe&lt;/span&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;/&lt;span class=&#34;hljs-name&#34;&gt;div&lt;/span&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;&lt;span class=&#34;hljs-name&#34;&gt;figcaption&lt;/span&gt;&amp;gt;&lt;/span&gt;&amp;hellip;&lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;/&lt;span class=&#34;hljs-name&#34;&gt;figcaption&lt;/span&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;/&lt;span class=&#34;hljs-name&#34;&gt;figure&lt;/span&gt;&amp;gt;&lt;/span&gt;
+&lt;/pre&gt;
+&lt;h5&gt;Code&lt;/h5&gt;
+&lt;figure&gt;
+  &lt;pre&gt;Function.prototype.inherits = function(parent)
+{
+    for (var key in parent.prototype)
+    {
+        this.prototype[key] = parent.prototype[key];
+    }
+};
+&lt;/pre&gt;
+  &lt;figcaption&gt;
+    One of the implementations of inheritance
+  &lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p class=&#34;end&#34;&gt;&lt;var&gt;HTML&lt;/var&gt;&lt;/p&gt;
+&lt;pre class=&#34;code skip&#34;&gt;&lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;&lt;span class=&#34;hljs-name&#34;&gt;figure&lt;/span&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;&lt;span class=&#34;hljs-name&#34;&gt;pre&lt;/span&gt;&amp;gt;&lt;/span&gt;&amp;hellip;&lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;/&lt;span class=&#34;hljs-name&#34;&gt;pre&lt;/span&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;&lt;span class=&#34;hljs-name&#34;&gt;figcaption&lt;/span&gt;&amp;gt;&lt;/span&gt;&amp;hellip;&lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;/&lt;span class=&#34;hljs-name&#34;&gt;figcaption&lt;/span&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;/&lt;span class=&#34;hljs-name&#34;&gt;figure&lt;/span&gt;&amp;gt;&lt;/span&gt;
+&lt;/pre&gt;
+&lt;h3 class=&#34;section-head&#34; id=&#34;h-lists&#34;&gt;&lt;a href=&#34;#h-lists&#34;&gt;Lists&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Although you most likely will not ever need to do so, you can still nest as many list levels as you like.&lt;/p&gt;
+&lt;div class=&#34;row gutters&#34;&gt;
+  &lt;div class=&#34;col col-6&#34;&gt;
+    &lt;div class=&#34;example&#34;&gt;
+      &lt;ul&gt;
+        &lt;li&gt;list item 1&lt;/li&gt;
+        &lt;li&gt;list item 2
+          &lt;ul&gt;
+            &lt;li&gt;list item 2.1&lt;/li&gt;
+            &lt;li&gt;list item 2.2
+              &lt;ul&gt;
+                &lt;li&gt;list item 2.2.1&lt;/li&gt;
+                &lt;li&gt;list item 2.2.2&lt;/li&gt;
+              &lt;/ul&gt;
+            &lt;/li&gt;
+            &lt;li&gt;list item 2.3&lt;/li&gt;
+            &lt;li&gt;list item 2.4&lt;/li&gt;
+          &lt;/ul&gt;
+        &lt;/li&gt;
+        &lt;li&gt;list item 3&lt;/li&gt;
+        &lt;li&gt;list item 4&lt;/li&gt;
+      &lt;/ul&gt;
+      &lt;pre class=&#34;code skip&#34;&gt;&lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;&lt;span class=&#34;hljs-name&#34;&gt;ul&lt;/span&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;&lt;span class=&#34;hljs-name&#34;&gt;li&lt;/span&gt;&amp;gt;&lt;/span&gt;&amp;hellip;&lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;/&lt;span class=&#34;hljs-name&#34;&gt;li&lt;/span&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;/&lt;span class=&#34;hljs-name&#34;&gt;ul&lt;/span&gt;&amp;gt;&lt;/span&gt;
+&lt;/pre&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&#34;col col-6&#34;&gt;
+    &lt;div class=&#34;example&#34;&gt;
+      &lt;ol&gt;
+        &lt;li&gt;list item 1&lt;/li&gt;
+        &lt;li&gt;list item 2
+          &lt;ol&gt;
+            &lt;li&gt;list item 2.1&lt;/li&gt;
+            &lt;li&gt;list item 2.2
+              &lt;ol&gt;
+                &lt;li&gt;list item 2.2.1&lt;/li&gt;
+                &lt;li&gt;list item 2.2.2&lt;/li&gt;
+              &lt;/ol&gt;
+            &lt;/li&gt;
+            &lt;li&gt;list item 2.3&lt;/li&gt;
+            &lt;li&gt;list item 2.4&lt;/li&gt;
+          &lt;/ol&gt;
+        &lt;/li&gt;
+        &lt;li&gt;list item 3&lt;/li&gt;
+        &lt;li&gt;list item 4&lt;/li&gt;
+      &lt;/ol&gt;
+      &lt;pre class=&#34;code skip&#34;&gt;&lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;&lt;span class=&#34;hljs-name&#34;&gt;ol&lt;/span&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;&lt;span class=&#34;hljs-name&#34;&gt;li&lt;/span&gt;&amp;gt;&lt;/span&gt;&amp;hellip;&lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;/&lt;span class=&#34;hljs-name&#34;&gt;li&lt;/span&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;/&lt;span class=&#34;hljs-name&#34;&gt;ol&lt;/span&gt;&amp;gt;&lt;/span&gt;
+&lt;/pre&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;h5&gt;Unstyled List&lt;/h5&gt;
+&lt;p&gt;To remove default list styling, use &lt;code&gt;.unstyled&lt;/code&gt;.&lt;/p&gt;
+&lt;div class=&#34;example&#34;&gt;
+  &lt;ul class=&#34;unstyled&#34;&gt;
+    &lt;li&gt;list item 1&lt;/li&gt;
+    &lt;li&gt;list item 2
+      &lt;ul&gt;
+        &lt;li&gt;list item 2.1&lt;/li&gt;
+        &lt;li&gt;list item 2.2&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/li&gt;
+    &lt;li&gt;list item 3&lt;/li&gt;
+    &lt;li&gt;list item 4&lt;/li&gt;
+  &lt;/ul&gt;
+  &lt;pre class=&#34;code skip&#34;&gt;&lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;&lt;span class=&#34;hljs-name&#34;&gt;ul&lt;/span&gt; &lt;span class=&#34;hljs-attr&#34;&gt;class&lt;/span&gt;=&lt;span class=&#34;hljs-string&#34;&gt;&amp;ldquo;unstyled&amp;rdquo;&lt;/span&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;&lt;span class=&#34;hljs-name&#34;&gt;li&lt;/span&gt;&amp;gt;&lt;/span&gt;&amp;hellip;&lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;/&lt;span class=&#34;hljs-name&#34;&gt;li&lt;/span&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;/&lt;span class=&#34;hljs-name&#34;&gt;ul&lt;/span&gt;&amp;gt;&lt;/span&gt;
+&lt;/pre&gt;
+&lt;/div&gt;
+&lt;h5&gt;Definition List&lt;/h5&gt;
+&lt;p&gt;From time to time, you may need to produce a list of definitions, and there&amp;rsquo;s one nicely built-in into Kube. We love semantic things. And lists. We love lists.&lt;/p&gt;
+&lt;div class=&#34;example&#34;&gt;
+  &lt;dl&gt;
+    &lt;dt&gt;Term 1&lt;/dt&gt;
+    &lt;dd&gt;Description 1&lt;/dd&gt;
+    &lt;dt&gt;Term 2&lt;/dt&gt;
+    &lt;dd&gt;Description 2&lt;/dd&gt;
+    &lt;dt&gt;Term 3&lt;/dt&gt;
+    &lt;dd&gt;Description 3&lt;/dd&gt;
+  &lt;/dl&gt;
+  &lt;pre class=&#34;code skip&#34;&gt;&lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;&lt;span class=&#34;hljs-name&#34;&gt;dl&lt;/span&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;&lt;span class=&#34;hljs-name&#34;&gt;dt&lt;/span&gt;&amp;gt;&lt;/span&gt;Term&lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;/&lt;span class=&#34;hljs-name&#34;&gt;dt&lt;/span&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;&lt;span class=&#34;hljs-name&#34;&gt;dd&lt;/span&gt;&amp;gt;&lt;/span&gt;Description&lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;/&lt;span class=&#34;hljs-name&#34;&gt;dd&lt;/span&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&#34;hljs-tag&#34;&gt;&amp;lt;/&lt;span class=&#34;hljs-name&#34;&gt;dl&lt;/span&gt;&amp;gt;&lt;/span&gt;
+&lt;/pre&gt;
+&lt;/div&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>JS Eval Node</title>
+      <link>https://ceduquey.github.io/Apibot/docs/js-eval-node/</link>
+      <pubDate>Thu, 18 May 2017 10:42:08 +0100</pubDate>
+      
+      <guid>https://ceduquey.github.io/Apibot/docs/js-eval-node/</guid>
+      <description>
+
+&lt;h2 id=&#34;definition&#34;&gt;Definition&lt;/h2&gt;
+
+&lt;p&gt;The JS Eval node define a function in the global namespace that given a scope &lt;em&gt;S&lt;/em&gt; returns the scope &lt;em&gt;S&lt;/em&gt;, after applying logic to it.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;f: Scope -&amp;gt; Scope
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;parameter&#34;&gt;Parameter&lt;/h3&gt;
+
+&lt;p&gt;The scope is the required parameter to which the logic will be applied.&lt;/p&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Parameter&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;scope&lt;/td&gt;
+&lt;td&gt;The scope where the logic will be applied to&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&#34;example&#34;&gt;Example&lt;/h3&gt;
+
+&lt;p&gt;For example, the scope &lt;em&gt;S = {&amp;ldquo;user&amp;rdquo;: &amp;ldquo;Carlos&amp;rdquo;, &amp;ldquo;age&amp;rdquo;: 25 }&lt;/em&gt; and the JS eval node defines a property on the scope, telling if the user is an adult or not. A function representation is as follow&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;f = (scope) =&amp;gt;{
+	scope[&amp;quot;adult&amp;quot;] = scope[&amp;quot;age&amp;quot;] &amp;gt;= 18;
+	return scope;
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;with the scope changing to&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;s = {
+	&amp;quot;user&amp;quot;: &amp;quot;Carlos&amp;quot;,
+	&amp;quot;age&amp;quot;: 25,
+	&amp;quot;adult&amp;quot;: &amp;quot;TRUE&amp;quot;
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;tutorial&#34;&gt;Tutorial&lt;/h2&gt;
+
+&lt;h3 id=&#34;introduction&#34;&gt;Introduction&lt;/h3&gt;
+
+&lt;p&gt;The JS Eval node is helpful to apply Javascript logic to the scenario. This node has two parameters which are:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;name, label to assign a name for the node&lt;/li&gt;
+&lt;li&gt;function, where you define a function in the global namespace, which takes a scope as argument and returns a scope.&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;In the example below, we will be using the twitter example (presented on the quickstart).&lt;br /&gt;
+We will create an auth variable, and this variable will concatenate the Key and Secret variable that were created on the scope, with a &amp;ldquo;:&amp;rdquo; in the middle. As shown on the following code:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;(scope)=&amp;gt;{ 
+var auth = btoa(scope.key+&amp;quot;:&amp;quot;+scope.secret);
+scope.auth = &amp;quot;Basic&amp;quot; + auth;
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+
+&lt;figure &gt;
+    
+        &lt;img src=&#34;https://ceduquey.github.io/Apibot/img/docs/js-eval-node.png&#34; alt=&#34;JS Eval node&#34; /&gt;
+    
+    
+    &lt;figcaption&gt;
+        &lt;p&gt;
+        JS Eval node
+        
+            
+        
+        &lt;/p&gt; 
+    &lt;/figcaption&gt;
+    
+&lt;/figure&gt;
+
+
+&lt;p&gt;After adding the auth variable, we could use it later on the graph. Following the example, we will use the auth as a header on an HTTP Request node. We will call the variable with this syntax $(auth) on the authorization header&lt;/p&gt;
+
+
+&lt;figure &gt;
+    
+        &lt;img src=&#34;https://ceduquey.github.io/Apibot/img/docs/http-request-twitter%20oauth2.png&#34; alt=&#34;HTTP Request node&#34; /&gt;
+    
+    
+    &lt;figcaption&gt;
+        &lt;p&gt;
+        HTTP Request node
+        
+            
+        
+        &lt;/p&gt; 
+    &lt;/figcaption&gt;
+    
+&lt;/figure&gt;
+
+</description>
+    </item>
+    
+    <item>
+      <title>Prototyping with markdown</title>
+      <link>https://ceduquey.github.io/Apibot/blog/prototyping/</link>
+      <pubDate>Sun, 02 Apr 2017 22:01:15 +0100</pubDate>
+      
+      <guid>https://ceduquey.github.io/Apibot/blog/prototyping/</guid>
+      <description>&lt;p&gt;&lt;img data-src=&#34;https://cldup.com/3tov0aCFh8.png&#34; class=&#34;lazyload&#34;&gt;&lt;/p&gt;
+
+&lt;p&gt;I have been working on a large set of documentation for a prototype that will eventually make it into a product. One issue with the publishing system at my company is that it makes doing prototypes, or really anything not within the rigidly and narrowly scoped model, difficult to set up. It takes a lot of work just to get to the point where you can begin writing.&lt;/p&gt;
+
+&lt;p&gt;Since time was of the essence and writing is expensive, I decided to do the prototype outside of the publishing system. I also decided to avoid using the rigid DocBook variant we use. Instead, &lt;strong&gt;I figured I do the prototype in Markdown using Hugo generator&lt;/strong&gt;. It gives me reasonably ~full featured Markdown support, flexibility to work wherever I want, easy HTML~ ,nd the stack/sheet metaphor fits nicely with topic based writing.&lt;/p&gt;
+
+&lt;p&gt;I wasn&amp;rsquo;t sure how well the experiment was going to work when I started, but a few weeks in I think it is great. ~I was able to rapidly prototype fifteen topics in about ten days.~ The prototype pages look fairly close to what our actual system generates. ~I can quickly make changes to the content as needed and republish.~ ~The fact that I can work multi-platform is great. I am not chained to my desk. I can demo changes easily.~&lt;/p&gt;
+
+&lt;p&gt;~The fact that I am working in text that doesn&amp;rsquo;t have to be structured in a rigid format makes the work flow faster~. It provides flexibility for quick changes, yet also allows for topic orientation.
+For final production and long term maintenance, unstructured Markdown is not a great solution. There the benefits of the rigidity outweigh the cost. The rigidity enforces uniformity that large groups of variously skilled writers need to create and maintain content at scale.
+&amp;gt; For small, fast projects or prototyping Markdown, with Hugo, have proven to be an excellent solution.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Eval Node</title>
+      <link>https://ceduquey.github.io/Apibot/docs/eval-node/</link>
+      <pubDate>Thu, 18 May 2017 10:42:08 +0100</pubDate>
+      
+      <guid>https://ceduquey.github.io/Apibot/docs/eval-node/</guid>
+      <description>
+
+&lt;h2 id=&#34;definition&#34;&gt;Definition&lt;/h2&gt;
+
+&lt;p&gt;The JS Eval node define a function in the global namespace that given a scope &lt;em&gt;S&lt;/em&gt; returns the scope &lt;em&gt;S&lt;/em&gt;, after applying logic to it.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;f: Scope -&amp;gt; Scope
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;parameter&#34;&gt;Parameter&lt;/h3&gt;
+
+&lt;p&gt;The scope is the required parameter to which the logic will be applied.&lt;/p&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Parameter&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;scope&lt;/td&gt;
+&lt;td&gt;The scope where the logic will be applied to&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&#34;example&#34;&gt;Example&lt;/h3&gt;
+
+&lt;p&gt;For example, the scope &lt;em&gt;S = {&amp;ldquo;user&amp;rdquo;: &amp;ldquo;Carlos&amp;rdquo;, &amp;ldquo;age&amp;rdquo;: 25 }&lt;/em&gt; and the JS eval node defines a property on the scope, telling if the user is an adult or not. A function representation is as follow&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;f = (scope) =&amp;gt;{
+	scope[&amp;quot;adult&amp;quot;] = scope[&amp;quot;age&amp;quot;] &amp;gt;= 18;
+	return scope;
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;with the scope changing to&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;s = {
+	&amp;quot;user&amp;quot;: &amp;quot;Carlos&amp;quot;,
+	&amp;quot;age&amp;quot;: 25,
+	&amp;quot;adult&amp;quot;: &amp;quot;TRUE&amp;quot;
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;tutorial&#34;&gt;Tutorial&lt;/h2&gt;
+
+&lt;h3 id=&#34;introduction&#34;&gt;Introduction&lt;/h3&gt;
+
+&lt;p&gt;The Eval node is helpful to apply logic to the scenario. This node has two parameters which are:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;name, label to assign a name for the node&lt;/li&gt;
+&lt;li&gt;function, where you define a function in the global namespace, which takes a scope as argument and returns a scope.&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;In the example below, we will be using the twitter example (presented on the quickstart).&lt;br /&gt;
+We will create an auth variable, and this variable will concatenate the Key and Secret variable that were created on the scope, with a &amp;ldquo;:&amp;rdquo; in the middle. As shown on the following code:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;fn [scope] (assoc scope :happy true)
+&lt;/code&gt;&lt;/pre&gt;
+
+
+&lt;figure &gt;
+    
+        &lt;img src=&#34;https://ceduquey.github.io/Apibot/img/docs/js-eval-node.png&#34; alt=&#34;JS Eval node&#34; /&gt;
+    
+    
+    &lt;figcaption&gt;
+        &lt;p&gt;
+        JS Eval node
+        
+            
+        
+        &lt;/p&gt; 
+    &lt;/figcaption&gt;
+    
+&lt;/figure&gt;
+
+
+&lt;p&gt;After adding the auth variable, we could use it later on the graph. Following the example, we will use the auth as a header on an HTTP Request node. We will call the variable with this syntax $(auth) on the authorization header&lt;/p&gt;
+
+
+&lt;figure &gt;
+    
+        &lt;img src=&#34;https://ceduquey.github.io/Apibot/img/docs/http-request-twitter%20oauth2.png&#34; alt=&#34;HTTP Request node&#34; /&gt;
+    
+    
+    &lt;figcaption&gt;
+        &lt;p&gt;
+        HTTP Request node
+        
+            
+        
+        &lt;/p&gt; 
+    &lt;/figcaption&gt;
+    
+&lt;/figure&gt;
+
+</description>
+    </item>
+    
+    <item>
+      <title>HTTP Request Node</title>
+      <link>https://ceduquey.github.io/Apibot/docs/http-request-node/</link>
+      <pubDate>Thu, 18 May 2017 17:08:08 +0100</pubDate>
+      
+      <guid>https://ceduquey.github.io/Apibot/docs/http-request-node/</guid>
+      <description>
+
+&lt;h2 id=&#34;definition&#34;&gt;Definition&lt;/h2&gt;
+
+&lt;p&gt;The HTTP Request node define a function in the global namespace that provides the HTTP request protocol implementation. The function requires an endpoint &lt;em&gt;u&lt;/em&gt;, and a method &lt;em&gt;m&lt;/em&gt;, other optional parameters such as a body &lt;em&gt;b&lt;/em&gt; and a list of variables corresponding to the headers &lt;em&gt;(n0,h0), (n1,h1), &amp;hellip; ,(nk,hk)&lt;/em&gt; can be added.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;f: f -&amp;gt; HTTP Request
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;parameter&#34;&gt;Parameter&lt;/h3&gt;
+
+&lt;h4 id=&#34;required-parameters&#34;&gt;Required Parameters&lt;/h4&gt;
+
+&lt;p&gt;The required parameter are the endpoint(or URL) where the HTTP request service will be called and the type of method.&lt;br /&gt;
+Parameter | Description
+&amp;mdash; | &amp;mdash;
+endpoint | The URL where the HTTP call is made
+method | The HTTP Method when doing the request&lt;/p&gt;
+
+&lt;h4 id=&#34;optional-parameters&#34;&gt;Optional Parameters&lt;/h4&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Parameter&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;(n1, h1)&lt;/td&gt;
+&lt;td&gt;n1: correspond to the name of the first header. &lt;br&gt; h1: correspond to the value assign to the header h1.&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;body&lt;/td&gt;
+&lt;td&gt;is the HTTP Message body. The content-type header must be added if the body is added.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h2 id=&#34;tutorial&#34;&gt;Tutorial&lt;/h2&gt;
+
+&lt;h3 id=&#34;introduction&#34;&gt;Introduction&lt;/h3&gt;
+
+&lt;p&gt;You use the HTTP Request node to implement the HTTP Request protocol on your graph. We are assuming that you understand the protocol.&lt;br /&gt;
+The HTTP Request node consists of three parameters which are the following:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Name, the name of the node&lt;/li&gt;
+&lt;li&gt;URL, the endpoint to make the request&lt;/li&gt;
+&lt;li&gt;Method, the HTTP method, to indicate the desired action to be performed on the identified resource, is usually GET or POST.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;As shown on the figure below, implementing the endpoint to get the user_timeline on twitter.&lt;/p&gt;
+
+
+&lt;figure &gt;
+    
+        &lt;img src=&#34;https://ceduquey.github.io/Apibot/img/docs/get-user-timeline.png&#34; alt=&#34;User Timeline&#34; /&gt;
+    
+    
+    &lt;figcaption&gt;
+        &lt;p&gt;
+        User Timeline
+        
+            
+        
+        &lt;/p&gt; 
+    &lt;/figcaption&gt;
+    
+&lt;/figure&gt;
+
+
+&lt;p&gt;If the request need a message body, a content-type header must be added, so the body text area shows up.&lt;br /&gt;
+To insert headers on the request, you should click on &lt;strong&gt;add new header&lt;/strong&gt;, as shown on the image below.&lt;/p&gt;
+
+
+&lt;figure &gt;
+    
+        &lt;img src=&#34;https://ceduquey.github.io/Apibot/img/docs/http-request-twitter%20oauth2.png&#34; alt=&#34;HTTP Request node&#34; /&gt;
+    
+    
+    &lt;figcaption&gt;
+        &lt;p&gt;
+        HTTP Request node
+        
+            
+        
+        &lt;/p&gt; 
+    &lt;/figcaption&gt;
+    
+&lt;/figure&gt;
+
+</description>
+    </item>
+    
+    <item>
+      <title>Assert Node</title>
+      <link>https://ceduquey.github.io/Apibot/docs/assert-node/</link>
+      <pubDate>Sat, 20 May 2017 14:34:08 +0100</pubDate>
+      
+      <guid>https://ceduquey.github.io/Apibot/docs/assert-node/</guid>
+      <description>
+
+&lt;h3 id=&#34;introduction&#34;&gt;Introduction&lt;/h3&gt;
+
+&lt;p&gt;The Assert node allows to evaluate the scope on a given graph. The node consists of three (3) parameters, which are the following:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Name, the name of the node&lt;/li&gt;
+&lt;li&gt;Error Template, the message to be shown when the assert failed&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Function, is the text area to define an anonymous function which takes the scope as argument and returns the scope. E.g.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;(fn [scope] (assoc scope :happy true))
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Below is an example of implementing the node.&lt;/p&gt;
+
+
+&lt;figure &gt;
+    
+        &lt;img src=&#34;https://ceduquey.github.io/Apibot/img/docs/assert-node.png&#34; alt=&#34;Assert Node&#34; /&gt;
+    
+    
+    &lt;figcaption&gt;
+        &lt;p&gt;
+        Assert Node
+        
+            
+        
+        &lt;/p&gt; 
+    &lt;/figcaption&gt;
+    
+&lt;/figure&gt;
+
+
+&lt;p&gt;When executing the graph and looking at the results, the assert node would evaluate the function, the example below shows the result when the assert failed.&lt;/p&gt;
+
+
+&lt;figure &gt;
+    
+        &lt;img src=&#34;https://ceduquey.github.io/Apibot/img/docs/assert-fail.png&#34; alt=&#34;Executing a fail assert&#34; /&gt;
+    
+    
+    &lt;figcaption&gt;
+        &lt;p&gt;
+        Executing a fail assert
+        
+            
+        
+        &lt;/p&gt; 
+    &lt;/figcaption&gt;
+    
+&lt;/figure&gt;
+
+
+&lt;h3 id=&#34;conditional-execution&#34;&gt;Conditional Execution&lt;/h3&gt;
+
+&lt;p&gt;With the appropriate design, a graph could execute more than one (1) path in parallel. By exploiting the use of the Assert node, you could create a conditional path. For example, creating a two (2) way path, with two arrows pointing to two Assert node, then it means the are two paths on the graph. If on the first node you assign a status code to go from 200 to 299, and the second node you select to go from 300 to 399, meaning that both nodes are excluding paths. When executing the graph it means that it would follow the path depending on the response status, the figure below shows an example of the scenario.&lt;/p&gt;
+
+
+&lt;figure &gt;
+    
+        &lt;img src=&#34;https://ceduquey.github.io/Apibot/img/docs/conditional-status.png&#34; alt=&#34;Conditional execution&#34; /&gt;
+    
+    
+    &lt;figcaption&gt;
+        &lt;p&gt;
+        Conditional execution
+        
+            
+        
+        &lt;/p&gt; 
+    &lt;/figcaption&gt;
+    
+&lt;/figure&gt;
+
+</description>
+    </item>
+    
+    <item>
+      <title>Assert Status Node</title>
+      <link>https://ceduquey.github.io/Apibot/docs/assert-status/</link>
+      <pubDate>Fri, 19 May 2017 10:39:08 +0100</pubDate>
+      
+      <guid>https://ceduquey.github.io/Apibot/docs/assert-status/</guid>
+      <description>
+
+&lt;h3 id=&#34;introduction&#34;&gt;Introduction&lt;/h3&gt;
+
+&lt;p&gt;The Assert Status node allows to evaluate the status code from a HTTP Response message. The node consists of three (3) parameters, which are the following:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Name, the name of the node&lt;/li&gt;
+&lt;li&gt;Status From, the response status code minimum accepted value&lt;/li&gt;
+&lt;li&gt;Status To, the response status code maximum accepted value&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Below is an example of implementing the node.&lt;/p&gt;
+
+
+&lt;figure &gt;
+    
+        &lt;img src=&#34;https://ceduquey.github.io/Apibot/img/docs/assert-status-twitter-oauth2.png&#34; alt=&#34;Assert Status&#34; /&gt;
+    
+    
+    &lt;figcaption&gt;
+        &lt;p&gt;
+        Assert Status
+        
+            
+        
+        &lt;/p&gt; 
+    &lt;/figcaption&gt;
+    
+&lt;/figure&gt;
+
+
+&lt;p&gt;When executing the graph and looking at the results, the assert node would evaluate if the response status code was between does values, the example below shows the result when the assert failed.&lt;/p&gt;
+
+
+&lt;figure &gt;
+    
+        &lt;img src=&#34;https://ceduquey.github.io/Apibot/img/docs/assert-fail.png&#34; alt=&#34;Executing a fail assert&#34; /&gt;
+    
+    
+    &lt;figcaption&gt;
+        &lt;p&gt;
+        Executing a fail assert
+        
+            
+        
+        &lt;/p&gt; 
+    &lt;/figcaption&gt;
+    
+&lt;/figure&gt;
+
+
+&lt;h3 id=&#34;conditional-execution&#34;&gt;Conditional Execution&lt;/h3&gt;
+
+&lt;p&gt;With the appropriate design, a graph could execute more than one (1) path in parallel. By exploiting the use of the Assert Status node, you could create a conditional path. For example, creating a two (2) way path, with two arrows pointing to two Assert Status node, then it means the are two paths on the graph. If on the first node you assign a status code to go from 200 to 299, and the second node you select to go from 300 to 399, meaning that both nodes are excluding paths. When executing the graph it means that it would follow the path depending on the response status, the figure below shows an example of the scenario.&lt;/p&gt;
+
+
+&lt;figure &gt;
+    
+        &lt;img src=&#34;https://ceduquey.github.io/Apibot/img/docs/conditional-status.png&#34; alt=&#34;Conditional execution&#34; /&gt;
+    
+    
+    &lt;figcaption&gt;
+        &lt;p&gt;
+        Conditional execution
+        
+            
+        
+        &lt;/p&gt; 
+    &lt;/figcaption&gt;
+    
+&lt;/figure&gt;
+
+</description>
+    </item>
+    
+    <item>
+      <title>Assert Body Node</title>
+      <link>https://ceduquey.github.io/Apibot/docs/assert-body-node/</link>
+      <pubDate>Sat, 20 May 2017 14:42:08 +0100</pubDate>
+      
+      <guid>https://ceduquey.github.io/Apibot/docs/assert-body-node/</guid>
+      <description>
+
+&lt;h3 id=&#34;introduction&#34;&gt;Introduction&lt;/h3&gt;
+
+&lt;p&gt;The Assert Body node allows to evaluate the body of a HTTP Response. The node consists of three (3) parameters, which are the following:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Name, the name of the node&lt;/li&gt;
+&lt;li&gt;Error Template, the message to be shown when the assert failed&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Function, is the text area to define a function in the global namespace, with two parameters, &lt;em&gt;body&lt;/em&gt;, the HTTP response body, and &lt;em&gt;scope&lt;/em&gt;, of the graph. E.g.:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;f = function(body, scope) {
+    return body.user_id != scope.user_id;
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Below is an example of implementing the node.&lt;/p&gt;
+
+
+&lt;figure &gt;
+    
+        &lt;img src=&#34;https://ceduquey.github.io/Apibot/img/docs/assert-body-node.png&#34; alt=&#34;Assert Body Node&#34; /&gt;
+    
+    
+    &lt;figcaption&gt;
+        &lt;p&gt;
+        Assert Body Node
+        
+            
+        
+        &lt;/p&gt; 
+    &lt;/figcaption&gt;
+    
+&lt;/figure&gt;
+
+
+&lt;p&gt;When executing the graph and looking at the results, the assert node would evaluate the function.&lt;/p&gt;
+
+&lt;h3 id=&#34;conditional-execution&#34;&gt;Conditional Execution&lt;/h3&gt;
+
+&lt;p&gt;With the appropriate design, a graph could execute more than one (1) path in parallel. By exploiting the use of the Assert Body node, you could create a conditional path. For example, creating a two (2) way path, with two arrows pointing to two Assert node, then it means the are two paths on the graph. If on the first node you assign a status code to go from 200 to 299, and the second node you select to go from 300 to 399, meaning that both nodes are excluding paths. When executing the graph it means that it would follow the path depending on the response status, the figure below shows an example of the scenario.&lt;/p&gt;
+
+
+&lt;figure &gt;
+    
+        &lt;img src=&#34;https://ceduquey.github.io/Apibot/img/docs/assert-body-conditional.png&#34; alt=&#34;Conditional body execution&#34; /&gt;
+    
+    
+    &lt;figcaption&gt;
+        &lt;p&gt;
+        Conditional body execution
+        
+            
+        
+        &lt;/p&gt; 
+    &lt;/figcaption&gt;
+    
+&lt;/figure&gt;
+
+</description>
+    </item>
+    
+    <item>
+      <title>Assert Header Node</title>
+      <link>https://ceduquey.github.io/Apibot/docs/assert-header-node/</link>
+      <pubDate>Sat, 20 May 2017 14:42:08 +0100</pubDate>
+      
+      <guid>https://ceduquey.github.io/Apibot/docs/assert-header-node/</guid>
+      <description>
+
+&lt;h3 id=&#34;introduction&#34;&gt;Introduction&lt;/h3&gt;
+
+&lt;p&gt;The Assert Header node allows to evaluate the header of a HTTP Request. The node consists of three (3) parameters, which are the following:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Name, the name of the node&lt;/li&gt;
+&lt;li&gt;Error Template, the message to be shown when the assert failed&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Function, is the text area to define a function in the global namespace, with two parameters, &lt;em&gt;header&lt;/em&gt;, the HTTP request&amp;rsquo;s header, and &lt;em&gt;scope&lt;/em&gt;, of the graph. E.g.:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;f = function(headers, scope) {
+    return headers.auth_token != null;
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Below is an example of implementing the node.&lt;/p&gt;
+
+
+&lt;figure &gt;
+    
+        &lt;img src=&#34;https://ceduquey.github.io/Apibot/img/docs/assert-header-node.png&#34; alt=&#34;Assert Header Node&#34; /&gt;
+    
+    
+    &lt;figcaption&gt;
+        &lt;p&gt;
+        Assert Header Node
+        
+            
+        
+        &lt;/p&gt; 
+    &lt;/figcaption&gt;
+    
+&lt;/figure&gt;
+
+
+&lt;p&gt;When executing the graph and looking at the results, the assert node would evaluate the function.&lt;/p&gt;
+
+&lt;h3 id=&#34;conditional-execution&#34;&gt;Conditional Execution&lt;/h3&gt;
+
+&lt;p&gt;With the appropriate design, a graph could execute more than one (1) path in parallel. By exploiting the use of the Assert Header node, you could create a conditional path. For example, creating a two (2) way path, with two arrows pointing to two Assert Header node, then it means the are two paths on the graph. If on the first node you evaluate there is an authentication token, and on the second node there is not, meaning that both nodes are excluding paths. When executing the graph it means that it would follow the path depending on the request header, the figure below shows an example of the scenario.&lt;/p&gt;
+
+
+&lt;figure &gt;
+    
+        &lt;img src=&#34;https://ceduquey.github.io/Apibot/img/docs/assert-header-conditional.png&#34; alt=&#34;Conditional header execution&#34; /&gt;
+    
+    
+    &lt;figcaption&gt;
+        &lt;p&gt;
+        Conditional header execution
+        
+            
+        
+        &lt;/p&gt; 
+    &lt;/figcaption&gt;
+    
+&lt;/figure&gt;
+
+</description>
+    </item>
+    
+    <item>
+      <title>Extract Header Node</title>
+      <link>https://ceduquey.github.io/Apibot/docs/extract-header-node/</link>
+      <pubDate>Sun, 21 May 2017 16:27:08 +0100</pubDate>
+      
+      <guid>https://ceduquey.github.io/Apibot/docs/extract-header-node/</guid>
+      <description>
+
+&lt;h3 id=&#34;introduction&#34;&gt;Introduction&lt;/h3&gt;
+
+&lt;p&gt;The Extract Header node allow us to apply logic to the header of an HTTP Request/Response. This node has three parameters which are:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Name, label to assign a name for the node&lt;/li&gt;
+&lt;li&gt;Property Name, the variable that gets assigned the function return value&lt;/li&gt;
+&lt;li&gt;Header Name, the header from which the value will be taken.&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;In the example below, we will be &amp;hellip;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Extract Body Node</title>
+      <link>https://ceduquey.github.io/Apibot/docs/extract-body-node/</link>
+      <pubDate>Sun, 21 May 2017 12:24:08 +0100</pubDate>
+      
+      <guid>https://ceduquey.github.io/Apibot/docs/extract-body-node/</guid>
+      <description>
+
+&lt;h3 id=&#34;introduction&#34;&gt;Introduction&lt;/h3&gt;
+
+&lt;p&gt;The Extract Body node allow us to apply logic to the body of an HTTP Request/Response. This node has three parameters which are:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Name, label to assign a name for the node&lt;/li&gt;
+&lt;li&gt;Property Name, the variable that gets assigned the function return value&lt;/li&gt;
+&lt;li&gt;Function, where you define a function in the global namespace which takes the last request&amp;rsquo;s body as argument and returns a value.&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;In the example below, we will be using the twitter example (presented on the quickstart).&lt;br /&gt;
+We are going to extract the bearer token, by calling the body.access_token and assign it to a variable for later use.
+Therefore, we will add a &lt;strong&gt;Extract Body node&lt;/strong&gt;, with the following parameters:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;name: any name&lt;/li&gt;
+&lt;li&gt;Property Name: token,&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Function:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;(body) =&amp;gt;{
+return &amp;quot;Bearer&amp;quot; + body.access_token;
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;figure &gt;
+    
+        &lt;img src=&#34;https://ceduquey.github.io/Apibot/img/docs/extract-token-twitter-oauth2.png&#34; alt=&#34;Extract Token&#34; /&gt;
+    
+    
+    &lt;figcaption&gt;
+        &lt;p&gt;
+        Extract Token
+        
+            
+        
+        &lt;/p&gt; 
+    &lt;/figcaption&gt;
+    
+&lt;/figure&gt;
+
+
+&lt;p&gt;Now the token variable could be used later on the scenario. For example we create a new graph, where we will be calling the Twitter Bearer Token, that includes, the token variable. We will be using the endpoint to ask for a user timeline. Consequently, you should add a HTTP Request node, connect it with an arrow from our previous graph, and fill the parameters&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;URL: $(url)/1.1/statuses/user_timeline.json?count=100&amp;amp;screen_name=twitterapi&lt;/li&gt;
+&lt;li&gt;Method: GET&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;And add a new header:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;authorization: $(token), using the previous variable created on the Extract Body node.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Now you should be able to execute the API Requests&lt;/p&gt;
+
+
+&lt;figure &gt;
+    
+        &lt;img src=&#34;https://ceduquey.github.io/Apibot/img/docs/get-user-timeline.png&#34; alt=&#34;User Timeline&#34; /&gt;
+    
+    
+    &lt;figcaption&gt;
+        &lt;p&gt;
+        User Timeline
+        
+            
+        
+        &lt;/p&gt; 
+    &lt;/figcaption&gt;
+    
+&lt;/figure&gt;
+
+</description>
+    </item>
+    
+  </channel>
+</rss>
