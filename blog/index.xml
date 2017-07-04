@@ -2,29 +2,29 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Blogs on Apibot</title>
-    <link>https://ceduquey.github.io/Apibot/blog/index.xml</link>
+    <link>https://apibot-org.github.io/blog/index.xml</link>
     <description>Recent content in Blogs on Apibot</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 02 Apr 2017 21:56:55 +0100</lastBuildDate>
-    <atom:link href="https://ceduquey.github.io/Apibot/blog/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://apibot-org.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Inline 🐣Text Styles</title>
-      <link>https://ceduquey.github.io/Apibot/blog/inline-style/</link>
+      <link>https://apibot-org.github.io/blog/inline-style/</link>
       <pubDate>Sun, 02 Apr 2017 21:56:55 +0100</pubDate>
       
-      <guid>https://ceduquey.github.io/Apibot/blog/inline-style/</guid>
+      <guid>https://apibot-org.github.io/blog/inline-style/</guid>
       <description>&lt;p&gt;Chocolate tiramisu pastry a link cotton candy sesame snaps. Dessert cake chocolate bar a bold part sugar plum bonbon marshmallow lollipop toffee soufflé. Donut caramels chocolate bar. Oat cake cookie a marked part cheesecake donut. Jelly-o &lt;some&gt; $code marzipan cake. Bonbon sesame snaps chocolate an italic part oat cake pudding sweet roll caramels bonbon. Soufflé muffin 👻 gummies sugar plum dessert bonbon bear claw. Sweet ice cream jujubes. Marzipan sugar plum pastry chocolate ⌘+A bar fruitcake. Lollipop lollipop brownie.&lt;/p&gt;
 </description>
     </item>
     
     <item>
       <title>Welcome to Kube</title>
-      <link>https://ceduquey.github.io/Apibot/blog/welcome/</link>
+      <link>https://apibot-org.github.io/blog/welcome/</link>
       <pubDate>Thu, 02 Mar 2017 21:56:55 +0100</pubDate>
       
-      <guid>https://ceduquey.github.io/Apibot/blog/welcome/</guid>
+      <guid>https://apibot-org.github.io/blog/welcome/</guid>
       <description>
 
 &lt;h1 id=&#34;welcome-to-kube-an-open-source-documentation-like-theme-for-hugo&#34;&gt;Welcome to Kube – an open source documentation like theme for Hugo&lt;/h1&gt;
@@ -140,14 +140,14 @@ cheesecake. Sugar plum bonbon bonbon lemon drops gummies.&lt;/p&gt;
     
     <item>
       <title>Typography with kube</title>
-      <link>https://ceduquey.github.io/Apibot/blog/typography/</link>
+      <link>https://apibot-org.github.io/blog/typography/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://ceduquey.github.io/Apibot/blog/typography/</guid>
+      <guid>https://apibot-org.github.io/blog/typography/</guid>
       <description>&lt;p&gt;&lt;h3 class=&#34;section-head&#34; id=&#34;h-get-started&#34;&gt;&lt;a href=&#34;#h-get-started&#34;&gt;Get Started&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;Typography of Kube based on the 4px horizontal grid, it means that for the headers, paragraphs, quotes and any other texts chosen are a combination of line-height, that fit into the 4px grid and help set the horizontal rhythm of design by default.&lt;/p&gt;
 &lt;figure&gt;
-  &lt;img alt=&#34;4px horizontal rhythm&#34; height=&#34;180&#34; src=&#34;https://ceduquey.github.io/Apibot/img/kube/typography/01.png&#34; width=&#34;676&#34;&gt;
+  &lt;img alt=&#34;4px horizontal rhythm&#34; height=&#34;180&#34; src=&#34;https://apibot-org.github.io/img/kube/typography/01.png&#34; width=&#34;676&#34;&gt;
   &lt;figcaption&gt;
     4px grid for typography - the magic of the horizontal rhythm
   &lt;/figcaption&gt;
@@ -156,7 +156,7 @@ cheesecake. Sugar plum bonbon bonbon lemon drops gummies.&lt;/p&gt;
 &lt;p&gt;You can use all the default settings of typography and it will always look balanced. But also you can easily change any font sizes, just try to set the value of line-height fold for 4px and your texts will still look great.&lt;/p&gt;
 &lt;p&gt;Additional balance and harmony, creates a classic typography scale, used in Kube.&lt;/p&gt;
 &lt;figure&gt;
-  &lt;img alt=&#34;the typography scale&#34; height=&#34;140&#34; src=&#34;https://ceduquey.github.io/Apibot/img/kube/typography/02.png&#34; width=&#34;520&#34;&gt;
+  &lt;img alt=&#34;the typography scale&#34; height=&#34;140&#34; src=&#34;https://apibot-org.github.io/img/kube/typography/02.png&#34; width=&#34;520&#34;&gt;
   &lt;figcaption&gt;
     The typography scale helps to build a balance between the size of headings and text elements
   &lt;/figcaption&gt;
@@ -447,7 +447,7 @@ cheesecake. Sugar plum bonbon bonbon lemon drops gummies.&lt;/p&gt;
 &lt;p&gt;A figure tag features an image, a video or a code plus a caption. It is a good accessibility practice. It also helps serve responsive video to various devices when you wrap video into &lt;code&gt;.video-container&lt;/code&gt; class.&lt;/p&gt;
 &lt;h5&gt;Images&lt;/h5&gt;
 &lt;figure&gt;
-  &lt;img alt=&#34;Image&#34; height=&#34;533&#34; src=&#34;https://ceduquey.github.io/Apibot/img/favicons/logo-384x384.png&#34; width=&#34;800&#34;&gt;
+  &lt;img alt=&#34;Image&#34; height=&#34;533&#34; src=&#34;https://apibot-org.github.io/img/favicons/logo-384x384.png&#34; width=&#34;800&#34;&gt;
   &lt;figcaption&gt;
     Lorem ipsum dolor sit amet, consectetur adipisicing elit&amp;hellip;
   &lt;/figcaption&gt;
@@ -592,10 +592,10 @@ cheesecake. Sugar plum bonbon bonbon lemon drops gummies.&lt;/p&gt;
     
     <item>
       <title>Prototyping with markdown</title>
-      <link>https://ceduquey.github.io/Apibot/blog/prototyping/</link>
+      <link>https://apibot-org.github.io/blog/prototyping/</link>
       <pubDate>Sun, 02 Apr 2017 22:01:15 +0100</pubDate>
       
-      <guid>https://ceduquey.github.io/Apibot/blog/prototyping/</guid>
+      <guid>https://apibot-org.github.io/blog/prototyping/</guid>
       <description>&lt;p&gt;&lt;img data-src=&#34;https://cldup.com/3tov0aCFh8.png&#34; class=&#34;lazyload&#34;&gt;&lt;/p&gt;
 
 &lt;p&gt;I have been working on a large set of documentation for a prototype that will eventually make it into a product. One issue with the publishing system at my company is that it makes doing prototypes, or really anything not within the rigidly and narrowly scoped model, difficult to set up. It takes a lot of work just to get to the point where you can begin writing.&lt;/p&gt;
@@ -612,10 +612,10 @@ For final production and long term maintenance, unstructured Markdown is not a g
     
     <item>
       <title>Messages</title>
-      <link>https://ceduquey.github.io/Apibot/blog/messages/</link>
+      <link>https://apibot-org.github.io/blog/messages/</link>
       <pubDate>Mon, 10 Apr 2017 16:41:34 +0100</pubDate>
       
-      <guid>https://ceduquey.github.io/Apibot/blog/messages/</guid>
+      <guid>https://apibot-org.github.io/blog/messages/</guid>
       <description>&lt;p&gt;&lt;h3 class=&#34;section-head&#34; id=&#34;h-usage&#34;&gt;&lt;a href=&#34;#h-usage&#34;&gt;Usage&lt;/a&gt;&lt;/h3&gt;
 &lt;div class=&#34;example&#34;&gt;
   &lt;div class=&#34;message open&#34; data-component=&#34;message&#34; data-loaded=&#34;true&#34;&gt;
@@ -770,10 +770,10 @@ For final production and long term maintenance, unstructured Markdown is not a g
     
     <item>
       <title>Collapse</title>
-      <link>https://ceduquey.github.io/Apibot/blog/collapse/</link>
+      <link>https://apibot-org.github.io/blog/collapse/</link>
       <pubDate>Mon, 10 Apr 2017 16:42:50 +0100</pubDate>
       
-      <guid>https://ceduquey.github.io/Apibot/blog/collapse/</guid>
+      <guid>https://apibot-org.github.io/blog/collapse/</guid>
       <description>&lt;p&gt;&lt;h3 class=&#34;section-head&#34; id=&#34;h-base&#34;&gt;&lt;a href=&#34;#h-base&#34;&gt;Base&lt;/a&gt;&lt;/h3&gt;
 &lt;div class=&#34;example&#34;&gt;
   &lt;div class=&#34;my-collapse&#34; data-component=&#34;collapse&#34; id=&#34;my-collapse&#34;&gt;

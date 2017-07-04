@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Prototype on Apibot</title>
-    <link>https://ceduquey.github.io/Apibot/tags/prototype/index.xml</link>
+    <link>https://apibot-org.github.io/tags/prototype/index.xml</link>
     <description>Recent content in Prototype on Apibot</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <atom:link href="https://ceduquey.github.io/Apibot/tags/prototype/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://apibot-org.github.io/tags/prototype/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Prototyping with markdown</title>
-      <link>https://ceduquey.github.io/Apibot/blog/prototyping/</link>
+      <link>https://apibot-org.github.io/blog/prototyping/</link>
       <pubDate>Sun, 02 Apr 2017 22:01:15 +0100</pubDate>
       
-      <guid>https://ceduquey.github.io/Apibot/blog/prototyping/</guid>
+      <guid>https://apibot-org.github.io/blog/prototyping/</guid>
       <description>&lt;p&gt;&lt;img data-src=&#34;https://cldup.com/3tov0aCFh8.png&#34; class=&#34;lazyload&#34;&gt;&lt;/p&gt;
 
 &lt;p&gt;I have been working on a large set of documentation for a prototype that will eventually make it into a product. One issue with the publishing system at my company is that it makes doing prototypes, or really anything not within the rigidly and narrowly scoped model, difficult to set up. It takes a lot of work just to get to the point where you can begin writing.&lt;/p&gt;

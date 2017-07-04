@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Docs on Apibot</title>
-    <link>https://ceduquey.github.io/Apibot/docs/index.xml</link>
+    <link>https://apibot-org.github.io/docs/index.xml</link>
     <description>Recent content in Docs on Apibot</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 29 May 2017 18:12:08 +0100</lastBuildDate>
-    <atom:link href="https://ceduquey.github.io/Apibot/docs/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://apibot-org.github.io/docs/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Terminology</title>
-      <link>https://ceduquey.github.io/Apibot/docs/terminology/</link>
+      <link>https://apibot-org.github.io/docs/terminology/</link>
       <pubDate>Mon, 29 May 2017 18:12:08 +0100</pubDate>
       
-      <guid>https://ceduquey.github.io/Apibot/docs/terminology/</guid>
+      <guid>https://apibot-org.github.io/docs/terminology/</guid>
       <description>
 
 &lt;h3 id=&#34;scope&#34;&gt;Scope&lt;/h3&gt;
@@ -43,10 +43,10 @@ Also known as scenario.&lt;/p&gt;
     
     <item>
       <title>Quick start</title>
-      <link>https://ceduquey.github.io/Apibot/docs/quickstart/</link>
+      <link>https://apibot-org.github.io/docs/quickstart/</link>
       <pubDate>Mon, 15 May 2017 22:35:08 +0100</pubDate>
       
-      <guid>https://ceduquey.github.io/Apibot/docs/quickstart/</guid>
+      <guid>https://apibot-org.github.io/docs/quickstart/</guid>
       <description>
 
 &lt;p&gt;For this guide, it is necessary to have a Twitter developer account, for more information, please check Twitter developer documentation.&lt;/p&gt;
@@ -60,7 +60,7 @@ Also known as scenario.&lt;/p&gt;
 
 &lt;figure &gt;
     
-        &lt;img src=&#34;https://ceduquey.github.io/Apibot/img/docs/new-graph.png&#34; alt=&#34;Creating an Scenario on Apibot&#34; /&gt;
+        &lt;img src=&#34;https://apibot-org.github.io/img/docs/new-graph.png&#34; alt=&#34;Creating an Scenario on Apibot&#34; /&gt;
     
     
     &lt;figcaption&gt;
@@ -86,7 +86,7 @@ Also known as scenario.&lt;/p&gt;
 
 &lt;figure &gt;
     
-        &lt;img src=&#34;https://ceduquey.github.io/Apibot/img/docs/configuration-node.png&#34; alt=&#34;Configuration node&#34; /&gt;
+        &lt;img src=&#34;https://apibot-org.github.io/img/docs/configuration-node.png&#34; alt=&#34;Configuration node&#34; /&gt;
     
     
     &lt;figcaption&gt;
@@ -114,7 +114,7 @@ scope.auth = &amp;quot;Basic&amp;quot; + auth;
 
 &lt;figure &gt;
     
-        &lt;img src=&#34;https://ceduquey.github.io/Apibot/img/docs/js-eval-node.png&#34; alt=&#34;JS Eval node&#34; /&gt;
+        &lt;img src=&#34;https://apibot-org.github.io/img/docs/js-eval-node.png&#34; alt=&#34;JS Eval node&#34; /&gt;
     
     
     &lt;figcaption&gt;
@@ -161,7 +161,7 @@ scope.auth = &amp;quot;Basic&amp;quot; + auth;
 
 &lt;figure &gt;
     
-        &lt;img src=&#34;https://ceduquey.github.io/Apibot/img/docs/http-request-twitter%20oauth2.png&#34; alt=&#34;HTTP Request node&#34; /&gt;
+        &lt;img src=&#34;https://apibot-org.github.io/img/docs/http-request-twitter%20oauth2.png&#34; alt=&#34;HTTP Request node&#34; /&gt;
     
     
     &lt;figcaption&gt;
@@ -186,7 +186,7 @@ scope.auth = &amp;quot;Basic&amp;quot; + auth;
 
 &lt;figure &gt;
     
-        &lt;img src=&#34;https://ceduquey.github.io/Apibot/img/docs/assert-status-twitter-oauth2.png&#34; alt=&#34;Assert Status&#34; /&gt;
+        &lt;img src=&#34;https://apibot-org.github.io/img/docs/assert-status-twitter-oauth2.png&#34; alt=&#34;Assert Status&#34; /&gt;
     
     
     &lt;figcaption&gt;
@@ -218,7 +218,7 @@ return &amp;quot;Bearer&amp;quot; + body.access_token;
 
 &lt;figure &gt;
     
-        &lt;img src=&#34;https://ceduquey.github.io/Apibot/img/docs/extract-token-twitter-oauth2.png&#34; alt=&#34;Extract Token&#34; /&gt;
+        &lt;img src=&#34;https://apibot-org.github.io/img/docs/extract-token-twitter-oauth2.png&#34; alt=&#34;Extract Token&#34; /&gt;
     
     
     &lt;figcaption&gt;
@@ -237,7 +237,7 @@ return &amp;quot;Bearer&amp;quot; + body.access_token;
 
 &lt;figure &gt;
     
-        &lt;img src=&#34;https://ceduquey.github.io/Apibot/img/docs/results-bearer-token-oauth2.png&#34; alt=&#34;Results Token&#34; /&gt;
+        &lt;img src=&#34;https://apibot-org.github.io/img/docs/results-bearer-token-oauth2.png&#34; alt=&#34;Results Token&#34; /&gt;
     
     
     &lt;figcaption&gt;
@@ -261,7 +261,7 @@ return &amp;quot;Bearer&amp;quot; + body.access_token;
 
 &lt;figure &gt;
     
-        &lt;img src=&#34;https://ceduquey.github.io/Apibot/img/docs/previous-graph-twitter-oauth2.png&#34; alt=&#34;Previous Graph&#34; /&gt;
+        &lt;img src=&#34;https://apibot-org.github.io/img/docs/previous-graph-twitter-oauth2.png&#34; alt=&#34;Previous Graph&#34; /&gt;
     
     
     &lt;figcaption&gt;
@@ -294,7 +294,7 @@ return &amp;quot;Bearer&amp;quot; + body.access_token;
 
 &lt;figure &gt;
     
-        &lt;img src=&#34;https://ceduquey.github.io/Apibot/img/docs/get-user-timeline.png&#34; alt=&#34;User Timeline&#34; /&gt;
+        &lt;img src=&#34;https://apibot-org.github.io/img/docs/get-user-timeline.png&#34; alt=&#34;User Timeline&#34; /&gt;
     
     
     &lt;figcaption&gt;
@@ -313,10 +313,10 @@ return &amp;quot;Bearer&amp;quot; + body.access_token;
     
     <item>
       <title>Configuration Node</title>
-      <link>https://ceduquey.github.io/Apibot/docs/config-node/</link>
+      <link>https://apibot-org.github.io/docs/config-node/</link>
       <pubDate>Mon, 15 May 2017 22:35:08 +0100</pubDate>
       
-      <guid>https://ceduquey.github.io/Apibot/docs/config-node/</guid>
+      <guid>https://apibot-org.github.io/docs/config-node/</guid>
       <description>
 
 &lt;h2 id=&#34;definition&#34;&gt;Definition&lt;/h2&gt;
@@ -388,7 +388,7 @@ return &amp;quot;Bearer&amp;quot; + body.access_token;
 
 &lt;figure &gt;
     
-        &lt;img src=&#34;https://ceduquey.github.io/Apibot/img/docs/configuration-node.png&#34; alt=&#34;Configuration node&#34; /&gt;
+        &lt;img src=&#34;https://apibot-org.github.io/img/docs/configuration-node.png&#34; alt=&#34;Configuration node&#34; /&gt;
     
     
     &lt;figcaption&gt;
@@ -418,7 +418,7 @@ scope.auth = &amp;quot;Basic&amp;quot; + auth;
 
 &lt;figure &gt;
     
-        &lt;img src=&#34;https://ceduquey.github.io/Apibot/img/docs/js-eval-node.png&#34; alt=&#34;JS Eval node&#34; /&gt;
+        &lt;img src=&#34;https://apibot-org.github.io/img/docs/js-eval-node.png&#34; alt=&#34;JS Eval node&#34; /&gt;
     
     
     &lt;figcaption&gt;
@@ -442,7 +442,7 @@ scope.auth = &amp;quot;Basic&amp;quot; + auth;
 
 &lt;figure &gt;
     
-        &lt;img src=&#34;https://ceduquey.github.io/Apibot/img/docs/http-request-twitter%20oauth2.png&#34; alt=&#34;HTTP Request node&#34; /&gt;
+        &lt;img src=&#34;https://apibot-org.github.io/img/docs/http-request-twitter%20oauth2.png&#34; alt=&#34;HTTP Request node&#34; /&gt;
     
     
     &lt;figcaption&gt;
@@ -461,10 +461,10 @@ scope.auth = &amp;quot;Basic&amp;quot; + auth;
     
     <item>
       <title>JS Eval Node</title>
-      <link>https://ceduquey.github.io/Apibot/docs/js-eval-node/</link>
+      <link>https://apibot-org.github.io/docs/js-eval-node/</link>
       <pubDate>Thu, 18 May 2017 10:42:08 +0100</pubDate>
       
-      <guid>https://ceduquey.github.io/Apibot/docs/js-eval-node/</guid>
+      <guid>https://apibot-org.github.io/docs/js-eval-node/</guid>
       <description>
 
 &lt;h2 id=&#34;definition&#34;&gt;Definition&lt;/h2&gt;
@@ -536,7 +536,7 @@ scope.auth = &amp;quot;Basic&amp;quot; + auth;
 
 &lt;figure &gt;
     
-        &lt;img src=&#34;https://ceduquey.github.io/Apibot/img/docs/js-eval-node.png&#34; alt=&#34;JS Eval node&#34; /&gt;
+        &lt;img src=&#34;https://apibot-org.github.io/img/docs/js-eval-node.png&#34; alt=&#34;JS Eval node&#34; /&gt;
     
     
     &lt;figcaption&gt;
@@ -556,7 +556,7 @@ scope.auth = &amp;quot;Basic&amp;quot; + auth;
 
 &lt;figure &gt;
     
-        &lt;img src=&#34;https://ceduquey.github.io/Apibot/img/docs/http-request-twitter%20oauth2.png&#34; alt=&#34;HTTP Request node&#34; /&gt;
+        &lt;img src=&#34;https://apibot-org.github.io/img/docs/http-request-twitter%20oauth2.png&#34; alt=&#34;HTTP Request node&#34; /&gt;
     
     
     &lt;figcaption&gt;
@@ -575,10 +575,10 @@ scope.auth = &amp;quot;Basic&amp;quot; + auth;
     
     <item>
       <title>Eval Node</title>
-      <link>https://ceduquey.github.io/Apibot/docs/eval-node/</link>
+      <link>https://apibot-org.github.io/docs/eval-node/</link>
       <pubDate>Thu, 18 May 2017 10:42:08 +0100</pubDate>
       
-      <guid>https://ceduquey.github.io/Apibot/docs/eval-node/</guid>
+      <guid>https://apibot-org.github.io/docs/eval-node/</guid>
       <description>
 
 &lt;h2 id=&#34;definition&#34;&gt;Definition&lt;/h2&gt;
@@ -647,7 +647,7 @@ We will create an auth variable, and this variable will concatenate the Key and 
 
 &lt;figure &gt;
     
-        &lt;img src=&#34;https://ceduquey.github.io/Apibot/img/docs/js-eval-node.png&#34; alt=&#34;JS Eval node&#34; /&gt;
+        &lt;img src=&#34;https://apibot-org.github.io/img/docs/js-eval-node.png&#34; alt=&#34;JS Eval node&#34; /&gt;
     
     
     &lt;figcaption&gt;
@@ -667,7 +667,7 @@ We will create an auth variable, and this variable will concatenate the Key and 
 
 &lt;figure &gt;
     
-        &lt;img src=&#34;https://ceduquey.github.io/Apibot/img/docs/http-request-twitter%20oauth2.png&#34; alt=&#34;HTTP Request node&#34; /&gt;
+        &lt;img src=&#34;https://apibot-org.github.io/img/docs/http-request-twitter%20oauth2.png&#34; alt=&#34;HTTP Request node&#34; /&gt;
     
     
     &lt;figcaption&gt;
@@ -686,10 +686,10 @@ We will create an auth variable, and this variable will concatenate the Key and 
     
     <item>
       <title>HTTP Request Node</title>
-      <link>https://ceduquey.github.io/Apibot/docs/http-request-node/</link>
+      <link>https://apibot-org.github.io/docs/http-request-node/</link>
       <pubDate>Thu, 18 May 2017 17:08:08 +0100</pubDate>
       
-      <guid>https://ceduquey.github.io/Apibot/docs/http-request-node/</guid>
+      <guid>https://apibot-org.github.io/docs/http-request-node/</guid>
       <description>
 
 &lt;h2 id=&#34;definition&#34;&gt;Definition&lt;/h2&gt;
@@ -750,7 +750,7 @@ The HTTP Request node consists of three parameters which are the following:&lt;/
 
 &lt;figure &gt;
     
-        &lt;img src=&#34;https://ceduquey.github.io/Apibot/img/docs/get-user-timeline.png&#34; alt=&#34;User Timeline&#34; /&gt;
+        &lt;img src=&#34;https://apibot-org.github.io/img/docs/get-user-timeline.png&#34; alt=&#34;User Timeline&#34; /&gt;
     
     
     &lt;figcaption&gt;
@@ -771,7 +771,7 @@ To insert headers on the request, you should click on &lt;strong&gt;add new head
 
 &lt;figure &gt;
     
-        &lt;img src=&#34;https://ceduquey.github.io/Apibot/img/docs/http-request-twitter%20oauth2.png&#34; alt=&#34;HTTP Request node&#34; /&gt;
+        &lt;img src=&#34;https://apibot-org.github.io/img/docs/http-request-twitter%20oauth2.png&#34; alt=&#34;HTTP Request node&#34; /&gt;
     
     
     &lt;figcaption&gt;
@@ -790,10 +790,10 @@ To insert headers on the request, you should click on &lt;strong&gt;add new head
     
     <item>
       <title>Assert Node</title>
-      <link>https://ceduquey.github.io/Apibot/docs/assert-node/</link>
+      <link>https://apibot-org.github.io/docs/assert-node/</link>
       <pubDate>Sat, 20 May 2017 14:34:08 +0100</pubDate>
       
-      <guid>https://ceduquey.github.io/Apibot/docs/assert-node/</guid>
+      <guid>https://apibot-org.github.io/docs/assert-node/</guid>
       <description>
 
 &lt;h3 id=&#34;introduction&#34;&gt;Introduction&lt;/h3&gt;
@@ -815,7 +815,7 @@ To insert headers on the request, you should click on &lt;strong&gt;add new head
 
 &lt;figure &gt;
     
-        &lt;img src=&#34;https://ceduquey.github.io/Apibot/img/docs/assert-node.png&#34; alt=&#34;Assert Node&#34; /&gt;
+        &lt;img src=&#34;https://apibot-org.github.io/img/docs/assert-node.png&#34; alt=&#34;Assert Node&#34; /&gt;
     
     
     &lt;figcaption&gt;
@@ -835,7 +835,7 @@ To insert headers on the request, you should click on &lt;strong&gt;add new head
 
 &lt;figure &gt;
     
-        &lt;img src=&#34;https://ceduquey.github.io/Apibot/img/docs/assert-fail.png&#34; alt=&#34;Executing a fail assert&#34; /&gt;
+        &lt;img src=&#34;https://apibot-org.github.io/img/docs/assert-fail.png&#34; alt=&#34;Executing a fail assert&#34; /&gt;
     
     
     &lt;figcaption&gt;
@@ -857,7 +857,7 @@ To insert headers on the request, you should click on &lt;strong&gt;add new head
 
 &lt;figure &gt;
     
-        &lt;img src=&#34;https://ceduquey.github.io/Apibot/img/docs/conditional-status.png&#34; alt=&#34;Conditional execution&#34; /&gt;
+        &lt;img src=&#34;https://apibot-org.github.io/img/docs/conditional-status.png&#34; alt=&#34;Conditional execution&#34; /&gt;
     
     
     &lt;figcaption&gt;
@@ -876,10 +876,10 @@ To insert headers on the request, you should click on &lt;strong&gt;add new head
     
     <item>
       <title>Assert Status Node</title>
-      <link>https://ceduquey.github.io/Apibot/docs/assert-status/</link>
+      <link>https://apibot-org.github.io/docs/assert-status/</link>
       <pubDate>Fri, 19 May 2017 10:39:08 +0100</pubDate>
       
-      <guid>https://ceduquey.github.io/Apibot/docs/assert-status/</guid>
+      <guid>https://apibot-org.github.io/docs/assert-status/</guid>
       <description>
 
 &lt;h3 id=&#34;introduction&#34;&gt;Introduction&lt;/h3&gt;
@@ -897,7 +897,7 @@ To insert headers on the request, you should click on &lt;strong&gt;add new head
 
 &lt;figure &gt;
     
-        &lt;img src=&#34;https://ceduquey.github.io/Apibot/img/docs/assert-status-twitter-oauth2.png&#34; alt=&#34;Assert Status&#34; /&gt;
+        &lt;img src=&#34;https://apibot-org.github.io/img/docs/assert-status-twitter-oauth2.png&#34; alt=&#34;Assert Status&#34; /&gt;
     
     
     &lt;figcaption&gt;
@@ -917,7 +917,7 @@ To insert headers on the request, you should click on &lt;strong&gt;add new head
 
 &lt;figure &gt;
     
-        &lt;img src=&#34;https://ceduquey.github.io/Apibot/img/docs/assert-fail.png&#34; alt=&#34;Executing a fail assert&#34; /&gt;
+        &lt;img src=&#34;https://apibot-org.github.io/img/docs/assert-fail.png&#34; alt=&#34;Executing a fail assert&#34; /&gt;
     
     
     &lt;figcaption&gt;
@@ -939,7 +939,7 @@ To insert headers on the request, you should click on &lt;strong&gt;add new head
 
 &lt;figure &gt;
     
-        &lt;img src=&#34;https://ceduquey.github.io/Apibot/img/docs/conditional-status.png&#34; alt=&#34;Conditional execution&#34; /&gt;
+        &lt;img src=&#34;https://apibot-org.github.io/img/docs/conditional-status.png&#34; alt=&#34;Conditional execution&#34; /&gt;
     
     
     &lt;figcaption&gt;
@@ -958,10 +958,10 @@ To insert headers on the request, you should click on &lt;strong&gt;add new head
     
     <item>
       <title>Assert Body Node</title>
-      <link>https://ceduquey.github.io/Apibot/docs/assert-body-node/</link>
+      <link>https://apibot-org.github.io/docs/assert-body-node/</link>
       <pubDate>Sat, 20 May 2017 14:42:08 +0100</pubDate>
       
-      <guid>https://ceduquey.github.io/Apibot/docs/assert-body-node/</guid>
+      <guid>https://apibot-org.github.io/docs/assert-body-node/</guid>
       <description>
 
 &lt;h3 id=&#34;introduction&#34;&gt;Introduction&lt;/h3&gt;
@@ -985,7 +985,7 @@ To insert headers on the request, you should click on &lt;strong&gt;add new head
 
 &lt;figure &gt;
     
-        &lt;img src=&#34;https://ceduquey.github.io/Apibot/img/docs/assert-body-node.png&#34; alt=&#34;Assert Body Node&#34; /&gt;
+        &lt;img src=&#34;https://apibot-org.github.io/img/docs/assert-body-node.png&#34; alt=&#34;Assert Body Node&#34; /&gt;
     
     
     &lt;figcaption&gt;
@@ -1009,7 +1009,7 @@ To insert headers on the request, you should click on &lt;strong&gt;add new head
 
 &lt;figure &gt;
     
-        &lt;img src=&#34;https://ceduquey.github.io/Apibot/img/docs/assert-body-conditional.png&#34; alt=&#34;Conditional body execution&#34; /&gt;
+        &lt;img src=&#34;https://apibot-org.github.io/img/docs/assert-body-conditional.png&#34; alt=&#34;Conditional body execution&#34; /&gt;
     
     
     &lt;figcaption&gt;
@@ -1028,10 +1028,10 @@ To insert headers on the request, you should click on &lt;strong&gt;add new head
     
     <item>
       <title>Assert Header Node</title>
-      <link>https://ceduquey.github.io/Apibot/docs/assert-header-node/</link>
+      <link>https://apibot-org.github.io/docs/assert-header-node/</link>
       <pubDate>Sat, 20 May 2017 14:42:08 +0100</pubDate>
       
-      <guid>https://ceduquey.github.io/Apibot/docs/assert-header-node/</guid>
+      <guid>https://apibot-org.github.io/docs/assert-header-node/</guid>
       <description>
 
 &lt;h3 id=&#34;introduction&#34;&gt;Introduction&lt;/h3&gt;
@@ -1055,7 +1055,7 @@ To insert headers on the request, you should click on &lt;strong&gt;add new head
 
 &lt;figure &gt;
     
-        &lt;img src=&#34;https://ceduquey.github.io/Apibot/img/docs/assert-header-node.png&#34; alt=&#34;Assert Header Node&#34; /&gt;
+        &lt;img src=&#34;https://apibot-org.github.io/img/docs/assert-header-node.png&#34; alt=&#34;Assert Header Node&#34; /&gt;
     
     
     &lt;figcaption&gt;
@@ -1079,7 +1079,7 @@ To insert headers on the request, you should click on &lt;strong&gt;add new head
 
 &lt;figure &gt;
     
-        &lt;img src=&#34;https://ceduquey.github.io/Apibot/img/docs/assert-header-conditional.png&#34; alt=&#34;Conditional header execution&#34; /&gt;
+        &lt;img src=&#34;https://apibot-org.github.io/img/docs/assert-header-conditional.png&#34; alt=&#34;Conditional header execution&#34; /&gt;
     
     
     &lt;figcaption&gt;
@@ -1098,10 +1098,10 @@ To insert headers on the request, you should click on &lt;strong&gt;add new head
     
     <item>
       <title>Extract Header Node</title>
-      <link>https://ceduquey.github.io/Apibot/docs/extract-header-node/</link>
+      <link>https://apibot-org.github.io/docs/extract-header-node/</link>
       <pubDate>Sun, 21 May 2017 16:27:08 +0100</pubDate>
       
-      <guid>https://ceduquey.github.io/Apibot/docs/extract-header-node/</guid>
+      <guid>https://apibot-org.github.io/docs/extract-header-node/</guid>
       <description>
 
 &lt;h3 id=&#34;introduction&#34;&gt;Introduction&lt;/h3&gt;
@@ -1120,10 +1120,10 @@ To insert headers on the request, you should click on &lt;strong&gt;add new head
     
     <item>
       <title>Extract Body Node</title>
-      <link>https://ceduquey.github.io/Apibot/docs/extract-body-node/</link>
+      <link>https://apibot-org.github.io/docs/extract-body-node/</link>
       <pubDate>Sun, 21 May 2017 12:24:08 +0100</pubDate>
       
-      <guid>https://ceduquey.github.io/Apibot/docs/extract-body-node/</guid>
+      <guid>https://apibot-org.github.io/docs/extract-body-node/</guid>
       <description>
 
 &lt;h3 id=&#34;introduction&#34;&gt;Introduction&lt;/h3&gt;
@@ -1155,7 +1155,7 @@ return &amp;quot;Bearer&amp;quot; + body.access_token;
 
 &lt;figure &gt;
     
-        &lt;img src=&#34;https://ceduquey.github.io/Apibot/img/docs/extract-token-twitter-oauth2.png&#34; alt=&#34;Extract Token&#34; /&gt;
+        &lt;img src=&#34;https://apibot-org.github.io/img/docs/extract-token-twitter-oauth2.png&#34; alt=&#34;Extract Token&#34; /&gt;
     
     
     &lt;figcaption&gt;
@@ -1188,7 +1188,7 @@ return &amp;quot;Bearer&amp;quot; + body.access_token;
 
 &lt;figure &gt;
     
-        &lt;img src=&#34;https://ceduquey.github.io/Apibot/img/docs/get-user-timeline.png&#34; alt=&#34;User Timeline&#34; /&gt;
+        &lt;img src=&#34;https://apibot-org.github.io/img/docs/get-user-timeline.png&#34; alt=&#34;User Timeline&#34; /&gt;
     
     
     &lt;figcaption&gt;
