@@ -212,8 +212,9 @@ fixedSidebarOffset: 'auto',
 <p>After having the scope variables, is necessary to encode the consumer key and secret. We will concatenate both variables and assigned it to a new variable call <strong>auth</strong> on the scope. For this we will be using, the <strong>JS Eval node</strong>, useful to apply logic on our scenario. We insert the JS Eval node, as has been done on previous nodes, then we include a name for the node (e.g., &ldquo;Set Auth&rdquo;), and insert the following code on the function text area:</p>
 
 <pre><code>(scope)=&gt;{ 
-var auth = btoa(scope.key+&quot;:&quot;+scope.secret);
-scope.auth = &quot;Basic&quot; + auth;
+    var auth = btoa(scope.key+&quot;:&quot;+scope.secret);
+    scope.auth = &quot;Basic &quot; + auth;
+    return scope;
 }
 </code></pre>
 

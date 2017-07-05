@@ -104,8 +104,9 @@ Also known as scenario.&lt;/p&gt;
 &lt;p&gt;After having the scope variables, is necessary to encode the consumer key and secret. We will concatenate both variables and assigned it to a new variable call &lt;strong&gt;auth&lt;/strong&gt; on the scope. For this we will be using, the &lt;strong&gt;JS Eval node&lt;/strong&gt;, useful to apply logic on our scenario. We insert the JS Eval node, as has been done on previous nodes, then we include a name for the node (e.g., &amp;ldquo;Set Auth&amp;rdquo;), and insert the following code on the function text area:&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;(scope)=&amp;gt;{ 
-var auth = btoa(scope.key+&amp;quot;:&amp;quot;+scope.secret);
-scope.auth = &amp;quot;Basic&amp;quot; + auth;
+    var auth = btoa(scope.key+&amp;quot;:&amp;quot;+scope.secret);
+    scope.auth = &amp;quot;Basic &amp;quot; + auth;
+    return scope;
 }
 &lt;/code&gt;&lt;/pre&gt;
 
