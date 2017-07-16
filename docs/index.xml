@@ -2,12 +2,14 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Docs on Apibot</title>
-    <link>https://apibot-org.github.io/docs/index.xml</link>
+    <link>https://apibot-org.github.io/docs/</link>
     <description>Recent content in Docs on Apibot</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 29 May 2017 18:12:08 +0100</lastBuildDate>
-    <atom:link href="https://apibot-org.github.io/docs/index.xml" rel="self" type="application/rss+xml" />
+    
+	<atom:link href="https://apibot-org.github.io/docs/index.xml" rel="self" type="application/rss+xml" />
+    
     
     <item>
       <title>Terminology</title>
@@ -15,30 +17,13 @@
       <pubDate>Mon, 29 May 2017 18:12:08 +0100</pubDate>
       
       <guid>https://apibot-org.github.io/docs/terminology/</guid>
-      <description>
-
-&lt;h3 id=&#34;scope&#34;&gt;Scope&lt;/h3&gt;
-
-&lt;p&gt;Is the set of variables and objects you have access to.&lt;br /&gt;
-The scope changes inside functions.&lt;/p&gt;
-
-&lt;h3 id=&#34;node&#34;&gt;Node&lt;/h3&gt;
-
-&lt;p&gt;Represent system states, in which a function is apply on the scope.&lt;br /&gt;
-Also known as, vertices or points.&lt;/p&gt;
-
-&lt;h3 id=&#34;edges&#34;&gt;Edges&lt;/h3&gt;
-
-&lt;p&gt;Represent state transitions, connecting at least two nodes.&lt;br /&gt;
-Also known as, arrows, arcs or lines.&lt;/p&gt;
-
-&lt;h3 id=&#34;graph&#34;&gt;Graph&lt;/h3&gt;
-
-&lt;p&gt;Represents the set of pairwise relations between nodes. A graph in this context is made up of nodes which are connected by edges.&lt;br /&gt;
-Also known as scenario.&lt;/p&gt;
-
-&lt;h3 id=&#34;execution&#34;&gt;Execution&lt;/h3&gt;
-</description>
+      <description>Scope Is the set of variables and objects you have access to.
+The scope changes inside functions.
+Node Represent system states, in which a function is apply on the scope.
+Also known as, vertices or points.
+Edges Represent state transitions, connecting at least two nodes.
+Also known as, arrows, arcs or lines.
+Graph Represents the set of pairwise relations between nodes. A graph in this context is made up of nodes which are connected by edges.</description>
     </item>
     
     <item>
@@ -47,269 +32,9 @@ Also known as scenario.&lt;/p&gt;
       <pubDate>Mon, 15 May 2017 22:35:08 +0100</pubDate>
       
       <guid>https://apibot-org.github.io/docs/quickstart/</guid>
-      <description>
-
-&lt;p&gt;For this guide, it is necessary to have a Twitter developer account, for more information, please check Twitter developer documentation.&lt;/p&gt;
-
-&lt;h3 id=&#34;getting-the-bearer-token-from-twitter&#34;&gt;Getting the Bearer Token from Twitter&lt;/h3&gt;
-
-&lt;p&gt;We will be applying Twitter documentation regarding &lt;a href=&#34;https://dev.twitter.com/oauth/application-only&#34;&gt;Application-only Authentication&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;First, we will create a new scenario (graph) by pressing the button &lt;strong&gt;new graph&lt;/strong&gt; on the menu bar top of the screen.  If you would like, add a title and a description of your scenario. We should leave the executable box as uncheck, because the scenario is still incomplete.&lt;/p&gt;
-
-
-&lt;figure &gt;
-    
-        &lt;img src=&#34;https://apibot-org.github.io/img/docs/new-graph.png&#34; alt=&#34;Creating an Scenario on Apibot&#34; /&gt;
-    
-    
-    &lt;figcaption&gt;
-        &lt;p&gt;
-        Creating an Scenario on Apibot
-        
-            
-        
-        &lt;/p&gt; 
-    &lt;/figcaption&gt;
-    
-&lt;/figure&gt;
-
-
-&lt;p&gt;Next, we will need to add the scope variables, which are, the global variables on our scenario. The node that we use for this is the &lt;strong&gt;config node&lt;/strong&gt;, where we insert these variables. To add the node, go to the left pane and select the &lt;strong&gt;config node&lt;/strong&gt; then click &lt;strong&gt;add&lt;/strong&gt;. It would add the config node on the scren, then select it on the screen, and press the &lt;strong&gt;Add new property&lt;/strong&gt;, where we will enter the global variables, which are:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Consumer Key: Given by Twitter for your application&lt;/li&gt;
-&lt;li&gt;Consumer Secret: Given by Twitter for your application&lt;/li&gt;
-&lt;li&gt;URL: &lt;a href=&#34;https://api.twitter.com&#34;&gt;https://api.twitter.com&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-
-&lt;figure &gt;
-    
-        &lt;img src=&#34;https://apibot-org.github.io/img/docs/configuration-node.png&#34; alt=&#34;Configuration node&#34; /&gt;
-    
-    
-    &lt;figcaption&gt;
-        &lt;p&gt;
-        Configuration node
-        
-            
-        
-        &lt;/p&gt; 
-    &lt;/figcaption&gt;
-    
-&lt;/figure&gt;
-
-
-&lt;p&gt;After having the scope variables, is necessary to encode the consumer key and secret. We will concatenate both variables and assigned it to a new variable call &lt;strong&gt;auth&lt;/strong&gt; on the scope. For this we will be using, the &lt;strong&gt;JS Eval node&lt;/strong&gt;, useful to apply logic on our scenario. We insert the JS Eval node, as has been done on previous nodes, then we include a name for the node (e.g., &amp;ldquo;Set Auth&amp;rdquo;), and insert the following code on the function text area:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;(scope)=&amp;gt;{ 
-    var auth = btoa(scope.key+&amp;quot;:&amp;quot;+scope.secret);
-    scope.auth = &amp;quot;Basic &amp;quot; + auth;
-    return scope;
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;You must connect the configuration node to the JS Eval Node, unsing an arrow.&lt;/p&gt;
-
-
-&lt;figure &gt;
-    
-        &lt;img src=&#34;https://apibot-org.github.io/img/docs/js-eval-node.png&#34; alt=&#34;JS Eval node&#34; /&gt;
-    
-    
-    &lt;figcaption&gt;
-        &lt;p&gt;
-        JS Eval node
-        
-            
-        
-        &lt;/p&gt; 
-    &lt;/figcaption&gt;
-    
-&lt;/figure&gt;
-
-
-&lt;p&gt;The next step is to obtain the bearer token. As explained on Twitter:&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;The value calculated in step 1 must be exchanged for a bearer token by issuing a request to POST oauth2 / token:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;The request must be a HTTP POST request.&lt;/li&gt;
-&lt;li&gt;The request must include an Authorization header with the value of Basic &lt;base64 encoded value from step 1&gt;.&lt;/li&gt;
-&lt;li&gt;The request must include a Content-Type header with the value of application/x-www-form-urlencoded;charset=UTF-8.&lt;/li&gt;
-&lt;li&gt;The body of the request must be grant_type=client_credentials.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Therefore, you add a &lt;strong&gt;HTTP Request Node&lt;/strong&gt; on the scenario, and connect it to the JS Eval Node, with the following parameters:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Name:&lt;/strong&gt; &lt;em&gt;any name (e.g., /oauth2/token)&lt;/em&gt;. How you would like to call your node&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;URL:&lt;/strong&gt; &lt;em&gt;$(URL)/oauth2/token&lt;/em&gt;. Endpoint for the HTTP request, we are using the scope variable $(URL) that you created on the config node&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Method:&lt;/strong&gt; &lt;em&gt;POST&lt;/em&gt;. HTTP request type, in this case, is POST&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;To include the grant_type on the body, you should add the header content-type, and then the authorization and accept headers. Click on &lt;strong&gt;add new header&lt;/strong&gt;, and add:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;content-type:&lt;/strong&gt; &lt;em&gt;application/x-www-form-urlencoded;charset=UTF-8&lt;/em&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;authorization:&lt;/strong&gt; &lt;em&gt;$(auth)&lt;/em&gt;. Using the scope variable that we transform on the JS Eval Node&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;accept:&lt;/strong&gt; &lt;em&gt;application/json&lt;/em&gt;. The response type&lt;/li&gt;
-&lt;/ul&gt;
-
-
-&lt;figure &gt;
-    
-        &lt;img src=&#34;https://apibot-org.github.io/img/docs/http-request-twitter%20oauth2.png&#34; alt=&#34;HTTP Request node&#34; /&gt;
-    
-    
-    &lt;figcaption&gt;
-        &lt;p&gt;
-        HTTP Request node
-        
-            
-        
-        &lt;/p&gt; 
-    &lt;/figcaption&gt;
-    
-&lt;/figure&gt;
-
-
-&lt;p&gt;Now we should have the bearer token, to confirm that the process was successful, you could use a &lt;strong&gt;assert status node&lt;/strong&gt;. Insert a &lt;strong&gt;assert status node&lt;/strong&gt; from the node templates, and fill the fields&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Status from:&lt;/strong&gt; &lt;em&gt;200&lt;/em&gt;. The response status minimum accepted value&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Status to:&lt;/strong&gt; &lt;em&gt;200&lt;/em&gt;. The response status maximum accepted value&lt;/li&gt;
-&lt;/ul&gt;
-
-
-&lt;figure &gt;
-    
-        &lt;img src=&#34;https://apibot-org.github.io/img/docs/assert-status-twitter-oauth2.png&#34; alt=&#34;Assert Status&#34; /&gt;
-    
-    
-    &lt;figcaption&gt;
-        &lt;p&gt;
-        Assert Status
-        
-            
-        
-        &lt;/p&gt; 
-    &lt;/figcaption&gt;
-    
-&lt;/figure&gt;
-
-
-&lt;p&gt;By now we could execute the graph, but before doing that, we are going to extract the bearer token and assign it to a variable for later use.
-Therefore, we will add a &lt;strong&gt;Extract Body node&lt;/strong&gt;, with the following parameters:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Property Name:&lt;/strong&gt; &lt;em&gt;token&lt;/em&gt;,&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Function&lt;/strong&gt;:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;(body) =&amp;gt;{
-return &amp;quot;Bearer&amp;quot; + body.access_token;
-}
-&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-
-&lt;figure &gt;
-    
-        &lt;img src=&#34;https://apibot-org.github.io/img/docs/extract-token-twitter-oauth2.png&#34; alt=&#34;Extract Token&#34; /&gt;
-    
-    
-    &lt;figcaption&gt;
-        &lt;p&gt;
-        Extract Token
-        
-            
-        
-        &lt;/p&gt; 
-    &lt;/figcaption&gt;
-    
-&lt;/figure&gt;
-
-
-&lt;p&gt;Now we could execute the scenario and see the results. The graph must be executable (remember from &lt;em&gt;new graph&lt;/em&gt; description). You could do this by pressing on the editor and on the right pane check executable.
-
-&lt;figure &gt;
-    
-        &lt;img src=&#34;https://apibot-org.github.io/img/docs/results-bearer-token-oauth2.png&#34; alt=&#34;Results Token&#34; /&gt;
-    
-    
-    &lt;figcaption&gt;
-        &lt;p&gt;
-        Results Token
-        
-            
-        
-        &lt;/p&gt; 
-    &lt;/figcaption&gt;
-    
-&lt;/figure&gt;
-&lt;/p&gt;
-
-&lt;h3 id=&#34;authenticate-api-requests-with-the-bearer-token&#34;&gt;Authenticate API Requests with the Bearer Token&lt;/h3&gt;
-
-&lt;p&gt;Now we will show you one of the functionalities that make Apibot unique and best in its class.&lt;/p&gt;
-
-&lt;p&gt;Create a new graph, go to the left pane and select the previous graph (we called it &lt;em&gt;Twitter Bearer Token&lt;/em&gt;) click on add, it will show up on our new graph screen&lt;/p&gt;
-
-
-&lt;figure &gt;
-    
-        &lt;img src=&#34;https://apibot-org.github.io/img/docs/previous-graph-twitter-oauth2.png&#34; alt=&#34;Previous Graph&#34; /&gt;
-    
-    
-    &lt;figcaption&gt;
-        &lt;p&gt;
-        Previous Graph
-        
-            
-        
-        &lt;/p&gt; 
-    &lt;/figcaption&gt;
-    
-&lt;/figure&gt;
-
-
-&lt;p&gt;We will be using the endpoint to ask for a user timeline. Consequently, you should add a HTTP Request node, connect it with an arrow from our previous graph, and fill the parameters&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;URL: $(url)/1.1/statuses/user_timeline.json?count=100&amp;amp;screen_name=twitterapi&lt;/li&gt;
-&lt;li&gt;Method: GET&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;And add a new header:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;authorization: $(token), using the previous variable created on the Extract Body node.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Now you should be able to execute the API Requests&lt;/p&gt;
-
-
-&lt;figure &gt;
-    
-        &lt;img src=&#34;https://apibot-org.github.io/img/docs/get-user-timeline.png&#34; alt=&#34;User Timeline&#34; /&gt;
-    
-    
-    &lt;figcaption&gt;
-        &lt;p&gt;
-        User Timeline
-        
-            
-        
-        &lt;/p&gt; 
-    &lt;/figcaption&gt;
-    
-&lt;/figure&gt;
-
-</description>
+      <description>For this guide, it is necessary to have a Twitter developer account, for more information, please check Twitter developer documentation.
+Getting the Bearer Token from Twitter We will be applying Twitter documentation regarding Application-only Authentication.
+First, we will create a new scenario (graph) by pressing the button new graph on the menu bar top of the screen. If you would like, add a title and a description of your scenario.</description>
     </item>
     
     <item>
@@ -318,146 +43,9 @@ return &amp;quot;Bearer&amp;quot; + body.access_token;
       <pubDate>Mon, 15 May 2017 22:35:08 +0100</pubDate>
       
       <guid>https://apibot-org.github.io/docs/config-node/</guid>
-      <description>
-
-&lt;h2 id=&#34;definition&#34;&gt;Definition&lt;/h2&gt;
-
-&lt;p&gt;The configuration node represents a function that given a scope &lt;em&gt;S&lt;/em&gt; and a list of properties &lt;em&gt;(n0,v0), (n1,v1), &amp;hellip; ,(nk,vk)&lt;/em&gt; returns the scope &lt;em&gt;S&lt;/em&gt; with the new properties.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;f: Scope -&amp;gt; Scope
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;parameter&#34;&gt;Parameter&lt;/h3&gt;
-
-&lt;p&gt;The required parameters are the list of properties, to add to your scope, each property has two (2) values, the name of the property and the value.&lt;/p&gt;
-
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;Parameter&lt;/th&gt;
-&lt;th&gt;Description&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;scope&lt;/td&gt;
-&lt;td&gt;The scope where the new properties will be assigned to&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;(n1, v1)&lt;/td&gt;
-&lt;td&gt;n1: correspond to the name of the first property. &lt;br&gt; v1: correspond to the value assign to n1.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;h3 id=&#34;example&#34;&gt;Example&lt;/h3&gt;
-
-&lt;p&gt;For example, the scope &lt;em&gt;S = {&amp;ldquo;user&amp;rdquo;: &amp;ldquo;Carlos&amp;rdquo; }&lt;/em&gt; and the configuration node defines &lt;em&gt;age:=5&lt;/em&gt; and &lt;em&gt;password := &amp;ldquo;xyz&amp;rdquo;&lt;/em&gt;. A function representation is as follow&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;f = (scope) =&amp;gt;{
-	scope[&amp;quot;age&amp;quot;] = 5;
-	scope[&amp;quot;password&amp;quot;] = &amp;quot;xyz&amp;quot;;
-	return scope;
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;with the scope changing to&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;s = {
-	&amp;quot;user&amp;quot;: &amp;quot;Carlos&amp;quot;,
-	&amp;quot;age&amp;quot;: 5,
-	&amp;quot;password&amp;quot;: &amp;quot;xyz&amp;quot;
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2 id=&#34;tutorial&#34;&gt;Tutorial&lt;/h2&gt;
-
-&lt;h3 id=&#34;introduction&#34;&gt;Introduction&lt;/h3&gt;
-
-&lt;p&gt;The configuration node is useful to create scope variables that could be call later on the scenario or when the config node is called. This node, has 1 visible parameter which is the &lt;strong&gt;name&lt;/strong&gt; label to assign a name for the node. It has the option to add new parameters which are the properties, for this you select the node and click on &lt;strong&gt;Add new property&lt;/strong&gt; on the right pane, where you will be able to add a new property (scope variables).&lt;/p&gt;
-
-&lt;p&gt;On the image below we are adding three properties and we will show you how they are use later. We will be using the example of twitter authentication for applications. The three properties are:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Key&lt;/li&gt;
-&lt;li&gt;Secret&lt;/li&gt;
-&lt;li&gt;URL&lt;/li&gt;
-&lt;/ul&gt;
-
-
-&lt;figure &gt;
-    
-        &lt;img src=&#34;https://apibot-org.github.io/img/docs/configuration-node.png&#34; alt=&#34;Configuration node&#34; /&gt;
-    
-    
-    &lt;figcaption&gt;
-        &lt;p&gt;
-        Configuration node
-        
-            
-        
-        &lt;/p&gt; 
-    &lt;/figcaption&gt;
-    
-&lt;/figure&gt;
-
-
-&lt;h3 id=&#34;calling-the-property-variables&#34;&gt;Calling the Property Variables&lt;/h3&gt;
-
-&lt;p&gt;Now we will be calling the variables on a &amp;ldquo;JS Eval Node&amp;rdquo;, on this node we will be doing a change on the scope. We will create an auth variable, and this variable will concatenate the Key and Secret variable created before, with a &amp;ldquo;:&amp;rdquo; in the middle. As shown on the following code:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;(scope)=&amp;gt;{ 
-var auth = btoa(scope.key+&amp;quot;:&amp;quot;+scope.secret);
-scope.auth = &amp;quot;Basic&amp;quot; + auth;
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;As you can see we are calling the variable key, and secret as &lt;em&gt;scope.key&lt;/em&gt; and &lt;em&gt;scope.secret&lt;/em&gt;.&lt;/p&gt;
-
-
-&lt;figure &gt;
-    
-        &lt;img src=&#34;https://apibot-org.github.io/img/docs/js-eval-node.png&#34; alt=&#34;JS Eval node&#34; /&gt;
-    
-    
-    &lt;figcaption&gt;
-        &lt;p&gt;
-        JS Eval node
-        
-            
-        
-        &lt;/p&gt; 
-    &lt;/figcaption&gt;
-    
-&lt;/figure&gt;
-
-
-&lt;p&gt;The variables can also be called on a parameter input, as it shows on the image below, we will be doing a POST HTTP request. We will be using the property URL, to call the endpoint &lt;a href=&#34;https://api.twitter.com/oauth2/token&#34;&gt;https://api.twitter.com/oauth2/token&lt;/a&gt;, for this we do the following:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;$(url)&lt;/strong&gt;/oauth2/token&lt;/li&gt;
-&lt;/ul&gt;
-
-
-&lt;figure &gt;
-    
-        &lt;img src=&#34;https://apibot-org.github.io/img/docs/http-request-twitter%20oauth2.png&#34; alt=&#34;HTTP Request node&#34; /&gt;
-    
-    
-    &lt;figcaption&gt;
-        &lt;p&gt;
-        HTTP Request node
-        
-            
-        
-        &lt;/p&gt; 
-    &lt;/figcaption&gt;
-    
-&lt;/figure&gt;
-
-</description>
+      <description>Definition The configuration node represents a function that given a scope S and a list of properties (n0,v0), (n1,v1), &amp;hellip; ,(nk,vk) returns the scope S with the new properties.
+f: Scope -&amp;gt; Scope  Parameter The required parameters are the list of properties, to add to your scope, each property has two (2) values, the name of the property and the value.
+   Parameter Description     scope The scope where the new properties will be assigned to   (n1, v1) n1: correspond to the name of the first property.</description>
     </item>
     
     <item>
@@ -466,112 +54,9 @@ scope.auth = &amp;quot;Basic&amp;quot; + auth;
       <pubDate>Thu, 18 May 2017 10:42:08 +0100</pubDate>
       
       <guid>https://apibot-org.github.io/docs/js-eval-node/</guid>
-      <description>
-
-&lt;h2 id=&#34;definition&#34;&gt;Definition&lt;/h2&gt;
-
-&lt;p&gt;The JS Eval node define a function in the global namespace that given a scope &lt;em&gt;S&lt;/em&gt; returns the scope &lt;em&gt;S&lt;/em&gt;, after applying logic to it.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;f: Scope -&amp;gt; Scope
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;parameter&#34;&gt;Parameter&lt;/h3&gt;
-
-&lt;p&gt;The scope is the required parameter to which the logic will be applied.&lt;/p&gt;
-
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;Parameter&lt;/th&gt;
-&lt;th&gt;Description&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;scope&lt;/td&gt;
-&lt;td&gt;The scope where the logic will be applied to&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;h3 id=&#34;example&#34;&gt;Example&lt;/h3&gt;
-
-&lt;p&gt;For example, the scope &lt;em&gt;S = {&amp;ldquo;user&amp;rdquo;: &amp;ldquo;Carlos&amp;rdquo;, &amp;ldquo;age&amp;rdquo;: 25 }&lt;/em&gt; and the JS eval node defines a property on the scope, telling if the user is an adult or not. A function representation is as follow&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;f = (scope) =&amp;gt;{
-	scope[&amp;quot;adult&amp;quot;] = scope[&amp;quot;age&amp;quot;] &amp;gt;= 18;
-	return scope;
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;with the scope changing to&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;s = {
-	&amp;quot;user&amp;quot;: &amp;quot;Carlos&amp;quot;,
-	&amp;quot;age&amp;quot;: 25,
-	&amp;quot;adult&amp;quot;: &amp;quot;TRUE&amp;quot;
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2 id=&#34;tutorial&#34;&gt;Tutorial&lt;/h2&gt;
-
-&lt;h3 id=&#34;introduction&#34;&gt;Introduction&lt;/h3&gt;
-
-&lt;p&gt;The JS Eval node is helpful to apply Javascript logic to the scenario. This node has two parameters which are:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;name, label to assign a name for the node&lt;/li&gt;
-&lt;li&gt;function, where you define a function in the global namespace, which takes a scope as argument and returns a scope.&lt;br /&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;In the example below, we will be using the twitter example (presented on the quickstart).&lt;br /&gt;
-We will create an auth variable, and this variable will concatenate the Key and Secret variable that were created on the scope, with a &amp;ldquo;:&amp;rdquo; in the middle. As shown on the following code:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;(scope)=&amp;gt;{ 
-var auth = btoa(scope.key+&amp;quot;:&amp;quot;+scope.secret);
-scope.auth = &amp;quot;Basic&amp;quot; + auth;
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-
-&lt;figure &gt;
-    
-        &lt;img src=&#34;https://apibot-org.github.io/img/docs/js-eval-node.png&#34; alt=&#34;JS Eval node&#34; /&gt;
-    
-    
-    &lt;figcaption&gt;
-        &lt;p&gt;
-        JS Eval node
-        
-            
-        
-        &lt;/p&gt; 
-    &lt;/figcaption&gt;
-    
-&lt;/figure&gt;
-
-
-&lt;p&gt;After adding the auth variable, we could use it later on the graph. Following the example, we will use the auth as a header on an HTTP Request node. We will call the variable with this syntax $(auth) on the authorization header&lt;/p&gt;
-
-
-&lt;figure &gt;
-    
-        &lt;img src=&#34;https://apibot-org.github.io/img/docs/http-request-twitter%20oauth2.png&#34; alt=&#34;HTTP Request node&#34; /&gt;
-    
-    
-    &lt;figcaption&gt;
-        &lt;p&gt;
-        HTTP Request node
-        
-            
-        
-        &lt;/p&gt; 
-    &lt;/figcaption&gt;
-    
-&lt;/figure&gt;
-
-</description>
+      <description>Definition The JS Eval node define a function in the global namespace that given a scope S returns the scope S, after applying logic to it.
+f: Scope -&amp;gt; Scope  Parameter The scope is the required parameter to which the logic will be applied.
+   Parameter Description     scope The scope where the logic will be applied to    Example For example, the scope S = {&amp;ldquo;user&amp;rdquo;: &amp;ldquo;Carlos&amp;rdquo;, &amp;ldquo;age&amp;rdquo;: 25 } and the JS eval node defines a property on the scope, telling if the user is an adult or not.</description>
     </item>
     
     <item>
@@ -580,109 +65,9 @@ scope.auth = &amp;quot;Basic&amp;quot; + auth;
       <pubDate>Thu, 18 May 2017 10:42:08 +0100</pubDate>
       
       <guid>https://apibot-org.github.io/docs/eval-node/</guid>
-      <description>
-
-&lt;h2 id=&#34;definition&#34;&gt;Definition&lt;/h2&gt;
-
-&lt;p&gt;The JS Eval node define a function in the global namespace that given a scope &lt;em&gt;S&lt;/em&gt; returns the scope &lt;em&gt;S&lt;/em&gt;, after applying logic to it.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;f: Scope -&amp;gt; Scope
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;parameter&#34;&gt;Parameter&lt;/h3&gt;
-
-&lt;p&gt;The scope is the required parameter to which the logic will be applied.&lt;/p&gt;
-
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;Parameter&lt;/th&gt;
-&lt;th&gt;Description&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;scope&lt;/td&gt;
-&lt;td&gt;The scope where the logic will be applied to&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;h3 id=&#34;example&#34;&gt;Example&lt;/h3&gt;
-
-&lt;p&gt;For example, the scope &lt;em&gt;S = {&amp;ldquo;user&amp;rdquo;: &amp;ldquo;Carlos&amp;rdquo;, &amp;ldquo;age&amp;rdquo;: 25 }&lt;/em&gt; and the JS eval node defines a property on the scope, telling if the user is an adult or not. A function representation is as follow&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;f = (scope) =&amp;gt;{
-	scope[&amp;quot;adult&amp;quot;] = scope[&amp;quot;age&amp;quot;] &amp;gt;= 18;
-	return scope;
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;with the scope changing to&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;s = {
-	&amp;quot;user&amp;quot;: &amp;quot;Carlos&amp;quot;,
-	&amp;quot;age&amp;quot;: 25,
-	&amp;quot;adult&amp;quot;: &amp;quot;TRUE&amp;quot;
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2 id=&#34;tutorial&#34;&gt;Tutorial&lt;/h2&gt;
-
-&lt;h3 id=&#34;introduction&#34;&gt;Introduction&lt;/h3&gt;
-
-&lt;p&gt;The Eval node is helpful to apply logic to the scenario. This node has two parameters which are:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;name, label to assign a name for the node&lt;/li&gt;
-&lt;li&gt;function, where you define a function in the global namespace, which takes a scope as argument and returns a scope.&lt;br /&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;In the example below, we will be using the twitter example (presented on the quickstart).&lt;br /&gt;
-We will create an auth variable, and this variable will concatenate the Key and Secret variable that were created on the scope, with a &amp;ldquo;:&amp;rdquo; in the middle. As shown on the following code:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;fn [scope] (assoc scope :happy true)
-&lt;/code&gt;&lt;/pre&gt;
-
-
-&lt;figure &gt;
-    
-        &lt;img src=&#34;https://apibot-org.github.io/img/docs/js-eval-node.png&#34; alt=&#34;JS Eval node&#34; /&gt;
-    
-    
-    &lt;figcaption&gt;
-        &lt;p&gt;
-        JS Eval node
-        
-            
-        
-        &lt;/p&gt; 
-    &lt;/figcaption&gt;
-    
-&lt;/figure&gt;
-
-
-&lt;p&gt;After adding the auth variable, we could use it later on the graph. Following the example, we will use the auth as a header on an HTTP Request node. We will call the variable with this syntax $(auth) on the authorization header&lt;/p&gt;
-
-
-&lt;figure &gt;
-    
-        &lt;img src=&#34;https://apibot-org.github.io/img/docs/http-request-twitter%20oauth2.png&#34; alt=&#34;HTTP Request node&#34; /&gt;
-    
-    
-    &lt;figcaption&gt;
-        &lt;p&gt;
-        HTTP Request node
-        
-            
-        
-        &lt;/p&gt; 
-    &lt;/figcaption&gt;
-    
-&lt;/figure&gt;
-
-</description>
+      <description>Definition The JS Eval node define a function in the global namespace that given a scope S returns the scope S, after applying logic to it.
+f: Scope -&amp;gt; Scope  Parameter The scope is the required parameter to which the logic will be applied.
+   Parameter Description     scope The scope where the logic will be applied to    Example For example, the scope S = {&amp;ldquo;user&amp;rdquo;: &amp;ldquo;Carlos&amp;rdquo;, &amp;ldquo;age&amp;rdquo;: 25 } and the JS eval node defines a property on the scope, telling if the user is an adult or not.</description>
     </item>
     
     <item>
@@ -691,102 +76,8 @@ We will create an auth variable, and this variable will concatenate the Key and 
       <pubDate>Thu, 18 May 2017 17:08:08 +0100</pubDate>
       
       <guid>https://apibot-org.github.io/docs/http-request-node/</guid>
-      <description>
-
-&lt;h2 id=&#34;definition&#34;&gt;Definition&lt;/h2&gt;
-
-&lt;p&gt;The HTTP Request node define a function in the global namespace that provides the HTTP request protocol implementation. The function requires an endpoint &lt;em&gt;u&lt;/em&gt;, and a method &lt;em&gt;m&lt;/em&gt;, other optional parameters such as a body &lt;em&gt;b&lt;/em&gt; and a list of variables corresponding to the headers &lt;em&gt;(n0,h0), (n1,h1), &amp;hellip; ,(nk,hk)&lt;/em&gt; can be added.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;f: f -&amp;gt; HTTP Request
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;parameter&#34;&gt;Parameter&lt;/h3&gt;
-
-&lt;h4 id=&#34;required-parameters&#34;&gt;Required Parameters&lt;/h4&gt;
-
-&lt;p&gt;The required parameter are the endpoint(or URL) where the HTTP request service will be called and the type of method.&lt;br /&gt;
-Parameter | Description
-&amp;mdash; | &amp;mdash;
-endpoint | The URL where the HTTP call is made
-method | The HTTP Method when doing the request&lt;/p&gt;
-
-&lt;h4 id=&#34;optional-parameters&#34;&gt;Optional Parameters&lt;/h4&gt;
-
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;Parameter&lt;/th&gt;
-&lt;th&gt;Description&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;(n1, h1)&lt;/td&gt;
-&lt;td&gt;n1: correspond to the name of the first header. &lt;br&gt; h1: correspond to the value assign to the header h1.&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;body&lt;/td&gt;
-&lt;td&gt;is the HTTP Message body. The content-type header must be added if the body is added.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;h2 id=&#34;tutorial&#34;&gt;Tutorial&lt;/h2&gt;
-
-&lt;h3 id=&#34;introduction&#34;&gt;Introduction&lt;/h3&gt;
-
-&lt;p&gt;You use the HTTP Request node to implement the HTTP Request protocol on your graph. We are assuming that you understand the protocol.&lt;br /&gt;
-The HTTP Request node consists of three parameters which are the following:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Name, the name of the node&lt;/li&gt;
-&lt;li&gt;URL, the endpoint to make the request&lt;/li&gt;
-&lt;li&gt;Method, the HTTP method, to indicate the desired action to be performed on the identified resource, is usually GET or POST.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;As shown on the figure below, implementing the endpoint to get the user_timeline on twitter.&lt;/p&gt;
-
-
-&lt;figure &gt;
-    
-        &lt;img src=&#34;https://apibot-org.github.io/img/docs/get-user-timeline.png&#34; alt=&#34;User Timeline&#34; /&gt;
-    
-    
-    &lt;figcaption&gt;
-        &lt;p&gt;
-        User Timeline
-        
-            
-        
-        &lt;/p&gt; 
-    &lt;/figcaption&gt;
-    
-&lt;/figure&gt;
-
-
-&lt;p&gt;If the request need a message body, a content-type header must be added, so the body text area shows up.&lt;br /&gt;
-To insert headers on the request, you should click on &lt;strong&gt;add new header&lt;/strong&gt;, as shown on the image below.&lt;/p&gt;
-
-
-&lt;figure &gt;
-    
-        &lt;img src=&#34;https://apibot-org.github.io/img/docs/http-request-twitter%20oauth2.png&#34; alt=&#34;HTTP Request node&#34; /&gt;
-    
-    
-    &lt;figcaption&gt;
-        &lt;p&gt;
-        HTTP Request node
-        
-            
-        
-        &lt;/p&gt; 
-    &lt;/figcaption&gt;
-    
-&lt;/figure&gt;
-
-</description>
+      <description>Definition The HTTP Request node define a function in the global namespace that provides the HTTP request protocol implementation. The function requires an endpoint u, and a method m, other optional parameters such as a body b and a list of variables corresponding to the headers (n0,h0), (n1,h1), &amp;hellip; ,(nk,hk) can be added.
+f: f -&amp;gt; HTTP Request  Parameter Required Parameters The required parameter are the endpoint(or URL) where the HTTP request service will be called and the type of method.</description>
     </item>
     
     <item>
@@ -795,84 +86,9 @@ To insert headers on the request, you should click on &lt;strong&gt;add new head
       <pubDate>Sat, 20 May 2017 14:34:08 +0100</pubDate>
       
       <guid>https://apibot-org.github.io/docs/assert-node/</guid>
-      <description>
-
-&lt;h3 id=&#34;introduction&#34;&gt;Introduction&lt;/h3&gt;
-
-&lt;p&gt;The Assert node allows to evaluate the scope on a given graph. The node consists of three (3) parameters, which are the following:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Name, the name of the node&lt;/li&gt;
-&lt;li&gt;Error Template, the message to be shown when the assert failed&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;Function, is the text area to define an anonymous function which takes the scope as argument and returns the scope. E.g.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;(fn [scope] (assoc scope :happy true))
-&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Below is an example of implementing the node.&lt;/p&gt;
-
-
-&lt;figure &gt;
-    
-        &lt;img src=&#34;https://apibot-org.github.io/img/docs/assert-node.png&#34; alt=&#34;Assert Node&#34; /&gt;
-    
-    
-    &lt;figcaption&gt;
-        &lt;p&gt;
-        Assert Node
-        
-            
-        
-        &lt;/p&gt; 
-    &lt;/figcaption&gt;
-    
-&lt;/figure&gt;
-
-
-&lt;p&gt;When executing the graph and looking at the results, the assert node would evaluate the function, the example below shows the result when the assert failed.&lt;/p&gt;
-
-
-&lt;figure &gt;
-    
-        &lt;img src=&#34;https://apibot-org.github.io/img/docs/assert-fail.png&#34; alt=&#34;Executing a fail assert&#34; /&gt;
-    
-    
-    &lt;figcaption&gt;
-        &lt;p&gt;
-        Executing a fail assert
-        
-            
-        
-        &lt;/p&gt; 
-    &lt;/figcaption&gt;
-    
-&lt;/figure&gt;
-
-
-&lt;h3 id=&#34;conditional-execution&#34;&gt;Conditional Execution&lt;/h3&gt;
-
-&lt;p&gt;With the appropriate design, a graph could execute more than one (1) path in parallel. By exploiting the use of the Assert node, you could create a conditional path. For example, creating a two (2) way path, with two arrows pointing to two Assert node, then it means the are two paths on the graph. If on the first node you assign a status code to go from 200 to 299, and the second node you select to go from 300 to 399, meaning that both nodes are excluding paths. When executing the graph it means that it would follow the path depending on the response status, the figure below shows an example of the scenario.&lt;/p&gt;
-
-
-&lt;figure &gt;
-    
-        &lt;img src=&#34;https://apibot-org.github.io/img/docs/conditional-status.png&#34; alt=&#34;Conditional execution&#34; /&gt;
-    
-    
-    &lt;figcaption&gt;
-        &lt;p&gt;
-        Conditional execution
-        
-            
-        
-        &lt;/p&gt; 
-    &lt;/figcaption&gt;
-    
-&lt;/figure&gt;
-
-</description>
+      <description>Introduction The Assert node allows to evaluate the scope on a given graph. The node consists of three (3) parameters, which are the following:
+ Name, the name of the node Error Template, the message to be shown when the assert failed Function, is the text area to define an anonymous function which takes the scope as argument and returns the scope. E.g.
+(fn [scope] (assoc scope :happy true))   Below is an example of implementing the node.</description>
     </item>
     
     <item>
@@ -881,80 +97,9 @@ To insert headers on the request, you should click on &lt;strong&gt;add new head
       <pubDate>Fri, 19 May 2017 10:39:08 +0100</pubDate>
       
       <guid>https://apibot-org.github.io/docs/assert-status/</guid>
-      <description>
-
-&lt;h3 id=&#34;introduction&#34;&gt;Introduction&lt;/h3&gt;
-
-&lt;p&gt;The Assert Status node allows to evaluate the status code from a HTTP Response message. The node consists of three (3) parameters, which are the following:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Name, the name of the node&lt;/li&gt;
-&lt;li&gt;Status From, the response status code minimum accepted value&lt;/li&gt;
-&lt;li&gt;Status To, the response status code maximum accepted value&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Below is an example of implementing the node.&lt;/p&gt;
-
-
-&lt;figure &gt;
-    
-        &lt;img src=&#34;https://apibot-org.github.io/img/docs/assert-status-twitter-oauth2.png&#34; alt=&#34;Assert Status&#34; /&gt;
-    
-    
-    &lt;figcaption&gt;
-        &lt;p&gt;
-        Assert Status
-        
-            
-        
-        &lt;/p&gt; 
-    &lt;/figcaption&gt;
-    
-&lt;/figure&gt;
-
-
-&lt;p&gt;When executing the graph and looking at the results, the assert node would evaluate if the response status code was between does values, the example below shows the result when the assert failed.&lt;/p&gt;
-
-
-&lt;figure &gt;
-    
-        &lt;img src=&#34;https://apibot-org.github.io/img/docs/assert-fail.png&#34; alt=&#34;Executing a fail assert&#34; /&gt;
-    
-    
-    &lt;figcaption&gt;
-        &lt;p&gt;
-        Executing a fail assert
-        
-            
-        
-        &lt;/p&gt; 
-    &lt;/figcaption&gt;
-    
-&lt;/figure&gt;
-
-
-&lt;h3 id=&#34;conditional-execution&#34;&gt;Conditional Execution&lt;/h3&gt;
-
-&lt;p&gt;With the appropriate design, a graph could execute more than one (1) path in parallel. By exploiting the use of the Assert Status node, you could create a conditional path. For example, creating a two (2) way path, with two arrows pointing to two Assert Status node, then it means the are two paths on the graph. If on the first node you assign a status code to go from 200 to 299, and the second node you select to go from 300 to 399, meaning that both nodes are excluding paths. When executing the graph it means that it would follow the path depending on the response status, the figure below shows an example of the scenario.&lt;/p&gt;
-
-
-&lt;figure &gt;
-    
-        &lt;img src=&#34;https://apibot-org.github.io/img/docs/conditional-status.png&#34; alt=&#34;Conditional execution&#34; /&gt;
-    
-    
-    &lt;figcaption&gt;
-        &lt;p&gt;
-        Conditional execution
-        
-            
-        
-        &lt;/p&gt; 
-    &lt;/figcaption&gt;
-    
-&lt;/figure&gt;
-
-</description>
+      <description>Introduction The Assert Status node allows to evaluate the status code from a HTTP Response message. The node consists of three (3) parameters, which are the following:
+ Name, the name of the node Status From, the response status code minimum accepted value Status To, the response status code maximum accepted value  Below is an example of implementing the node.
+  Assert Status   When executing the graph and looking at the results, the assert node would evaluate if the response status code was between does values, the example below shows the result when the assert failed.</description>
     </item>
     
     <item>
@@ -963,68 +108,8 @@ To insert headers on the request, you should click on &lt;strong&gt;add new head
       <pubDate>Sat, 20 May 2017 14:42:08 +0100</pubDate>
       
       <guid>https://apibot-org.github.io/docs/assert-body-node/</guid>
-      <description>
-
-&lt;h3 id=&#34;introduction&#34;&gt;Introduction&lt;/h3&gt;
-
-&lt;p&gt;The Assert Body node allows to evaluate the body of a HTTP Response. The node consists of three (3) parameters, which are the following:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Name, the name of the node&lt;/li&gt;
-&lt;li&gt;Error Template, the message to be shown when the assert failed&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;Function, is the text area to define a function in the global namespace, with two parameters, &lt;em&gt;body&lt;/em&gt;, the HTTP response body, and &lt;em&gt;scope&lt;/em&gt;, of the graph. E.g.:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;f = function(body, scope) {
-    return body.user_id != scope.user_id;
-}
-&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Below is an example of implementing the node.&lt;/p&gt;
-
-
-&lt;figure &gt;
-    
-        &lt;img src=&#34;https://apibot-org.github.io/img/docs/assert-body-node.png&#34; alt=&#34;Assert Body Node&#34; /&gt;
-    
-    
-    &lt;figcaption&gt;
-        &lt;p&gt;
-        Assert Body Node
-        
-            
-        
-        &lt;/p&gt; 
-    &lt;/figcaption&gt;
-    
-&lt;/figure&gt;
-
-
-&lt;p&gt;When executing the graph and looking at the results, the assert node would evaluate the function.&lt;/p&gt;
-
-&lt;h3 id=&#34;conditional-execution&#34;&gt;Conditional Execution&lt;/h3&gt;
-
-&lt;p&gt;With the appropriate design, a graph could execute more than one (1) path in parallel. By exploiting the use of the Assert Body node, you could create a conditional path. For example, creating a two (2) way path, with two arrows pointing to two Assert node, then it means the are two paths on the graph. If on the first node you assign a status code to go from 200 to 299, and the second node you select to go from 300 to 399, meaning that both nodes are excluding paths. When executing the graph it means that it would follow the path depending on the response status, the figure below shows an example of the scenario.&lt;/p&gt;
-
-
-&lt;figure &gt;
-    
-        &lt;img src=&#34;https://apibot-org.github.io/img/docs/assert-body-conditional.png&#34; alt=&#34;Conditional body execution&#34; /&gt;
-    
-    
-    &lt;figcaption&gt;
-        &lt;p&gt;
-        Conditional body execution
-        
-            
-        
-        &lt;/p&gt; 
-    &lt;/figcaption&gt;
-    
-&lt;/figure&gt;
-
-</description>
+      <description>Introduction The Assert Body node allows to evaluate the body of a HTTP Response. The node consists of three (3) parameters, which are the following:
+ Name, the name of the node Error Template, the message to be shown when the assert failed Function, is the text area to define a function in the global namespace, with two parameters, body, the HTTP response body, and scope, of the graph. E.</description>
     </item>
     
     <item>
@@ -1033,68 +118,8 @@ To insert headers on the request, you should click on &lt;strong&gt;add new head
       <pubDate>Sat, 20 May 2017 14:42:08 +0100</pubDate>
       
       <guid>https://apibot-org.github.io/docs/assert-header-node/</guid>
-      <description>
-
-&lt;h3 id=&#34;introduction&#34;&gt;Introduction&lt;/h3&gt;
-
-&lt;p&gt;The Assert Header node allows to evaluate the header of a HTTP Request. The node consists of three (3) parameters, which are the following:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Name, the name of the node&lt;/li&gt;
-&lt;li&gt;Error Template, the message to be shown when the assert failed&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;Function, is the text area to define a function in the global namespace, with two parameters, &lt;em&gt;header&lt;/em&gt;, the HTTP request&amp;rsquo;s header, and &lt;em&gt;scope&lt;/em&gt;, of the graph. E.g.:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;f = function(headers, scope) {
-    return headers.auth_token != null;
-}
-&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Below is an example of implementing the node.&lt;/p&gt;
-
-
-&lt;figure &gt;
-    
-        &lt;img src=&#34;https://apibot-org.github.io/img/docs/assert-header-node.png&#34; alt=&#34;Assert Header Node&#34; /&gt;
-    
-    
-    &lt;figcaption&gt;
-        &lt;p&gt;
-        Assert Header Node
-        
-            
-        
-        &lt;/p&gt; 
-    &lt;/figcaption&gt;
-    
-&lt;/figure&gt;
-
-
-&lt;p&gt;When executing the graph and looking at the results, the assert node would evaluate the function.&lt;/p&gt;
-
-&lt;h3 id=&#34;conditional-execution&#34;&gt;Conditional Execution&lt;/h3&gt;
-
-&lt;p&gt;With the appropriate design, a graph could execute more than one (1) path in parallel. By exploiting the use of the Assert Header node, you could create a conditional path. For example, creating a two (2) way path, with two arrows pointing to two Assert Header node, then it means the are two paths on the graph. If on the first node you evaluate there is an authentication token, and on the second node there is not, meaning that both nodes are excluding paths. When executing the graph it means that it would follow the path depending on the request header, the figure below shows an example of the scenario.&lt;/p&gt;
-
-
-&lt;figure &gt;
-    
-        &lt;img src=&#34;https://apibot-org.github.io/img/docs/assert-header-conditional.png&#34; alt=&#34;Conditional header execution&#34; /&gt;
-    
-    
-    &lt;figcaption&gt;
-        &lt;p&gt;
-        Conditional header execution
-        
-            
-        
-        &lt;/p&gt; 
-    &lt;/figcaption&gt;
-    
-&lt;/figure&gt;
-
-</description>
+      <description>Introduction The Assert Header node allows to evaluate the header of a HTTP Request. The node consists of three (3) parameters, which are the following:
+ Name, the name of the node Error Template, the message to be shown when the assert failed Function, is the text area to define a function in the global namespace, with two parameters, header, the HTTP request&amp;rsquo;s header, and scope, of the graph. E.</description>
     </item>
     
     <item>
@@ -1103,20 +128,9 @@ To insert headers on the request, you should click on &lt;strong&gt;add new head
       <pubDate>Sun, 21 May 2017 16:27:08 +0100</pubDate>
       
       <guid>https://apibot-org.github.io/docs/extract-header-node/</guid>
-      <description>
-
-&lt;h3 id=&#34;introduction&#34;&gt;Introduction&lt;/h3&gt;
-
-&lt;p&gt;The Extract Header node allow us to apply logic to the header of an HTTP Request/Response. This node has three parameters which are:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Name, label to assign a name for the node&lt;/li&gt;
-&lt;li&gt;Property Name, the variable that gets assigned the function return value&lt;/li&gt;
-&lt;li&gt;Header Name, the header from which the value will be taken.&lt;br /&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;In the example below, we will be &amp;hellip;&lt;/p&gt;
-</description>
+      <description>Introduction The Extract Header node allow us to apply logic to the header of an HTTP Request/Response. This node has three parameters which are:
+ Name, label to assign a name for the node Property Name, the variable that gets assigned the function return value Header Name, the header from which the value will be taken.
+  In the example below, we will be &amp;hellip;</description>
     </item>
     
     <item>
@@ -1125,85 +139,9 @@ To insert headers on the request, you should click on &lt;strong&gt;add new head
       <pubDate>Sun, 21 May 2017 12:24:08 +0100</pubDate>
       
       <guid>https://apibot-org.github.io/docs/extract-body-node/</guid>
-      <description>
-
-&lt;h3 id=&#34;introduction&#34;&gt;Introduction&lt;/h3&gt;
-
-&lt;p&gt;The Extract Body node allow us to apply logic to the body of an HTTP Request/Response. This node has three parameters which are:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Name, label to assign a name for the node&lt;/li&gt;
-&lt;li&gt;Property Name, the variable that gets assigned the function return value&lt;/li&gt;
-&lt;li&gt;Function, where you define a function in the global namespace which takes the last request&amp;rsquo;s body as argument and returns a value.&lt;br /&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;In the example below, we will be using the twitter example (presented on the quickstart).&lt;br /&gt;
-We are going to extract the bearer token, by calling the body.access_token and assign it to a variable for later use.
-Therefore, we will add a &lt;strong&gt;Extract Body node&lt;/strong&gt;, with the following parameters:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;name: any name&lt;/li&gt;
-&lt;li&gt;Property Name: token,&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;Function:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;(body) =&amp;gt;{
-return &amp;quot;Bearer&amp;quot; + body.access_token;
-}
-&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-
-&lt;figure &gt;
-    
-        &lt;img src=&#34;https://apibot-org.github.io/img/docs/extract-token-twitter-oauth2.png&#34; alt=&#34;Extract Token&#34; /&gt;
-    
-    
-    &lt;figcaption&gt;
-        &lt;p&gt;
-        Extract Token
-        
-            
-        
-        &lt;/p&gt; 
-    &lt;/figcaption&gt;
-    
-&lt;/figure&gt;
-
-
-&lt;p&gt;Now the token variable could be used later on the scenario. For example we create a new graph, where we will be calling the Twitter Bearer Token, that includes, the token variable. We will be using the endpoint to ask for a user timeline. Consequently, you should add a HTTP Request node, connect it with an arrow from our previous graph, and fill the parameters&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;URL: $(url)/1.1/statuses/user_timeline.json?count=100&amp;amp;screen_name=twitterapi&lt;/li&gt;
-&lt;li&gt;Method: GET&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;And add a new header:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;authorization: $(token), using the previous variable created on the Extract Body node.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Now you should be able to execute the API Requests&lt;/p&gt;
-
-
-&lt;figure &gt;
-    
-        &lt;img src=&#34;https://apibot-org.github.io/img/docs/get-user-timeline.png&#34; alt=&#34;User Timeline&#34; /&gt;
-    
-    
-    &lt;figcaption&gt;
-        &lt;p&gt;
-        User Timeline
-        
-            
-        
-        &lt;/p&gt; 
-    &lt;/figcaption&gt;
-    
-&lt;/figure&gt;
-
-</description>
+      <description>Introduction The Extract Body node allow us to apply logic to the body of an HTTP Request/Response. This node has three parameters which are:
+ Name, label to assign a name for the node Property Name, the variable that gets assigned the function return value Function, where you define a function in the global namespace which takes the last request&amp;rsquo;s body as argument and returns a value.
+  In the example below, we will be using the twitter example (presented on the quickstart).</description>
     </item>
     
   </channel>

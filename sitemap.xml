@@ -1,15 +1,6 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  
-  <url>
-    <loc>https://apibot-org.github.io/docs/terminology/</loc>
-    <lastmod>2017-05-29T18:12:08+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://apibot-org.github.io/docs/quickstart/</loc>
-    <lastmod>2017-05-15T22:35:08+01:00</lastmod>
-  </url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
     <loc>https://apibot-org.github.io/blog/welcome/</loc>
@@ -17,62 +8,12 @@
   </url>
   
   <url>
-    <loc>https://apibot-org.github.io/docs/config-node/</loc>
-    <lastmod>2017-05-15T22:35:08+01:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://apibot-org.github.io/blog/typography/</loc>
-  </url>
-  
-  <url>
-    <loc>https://apibot-org.github.io/docs/js-eval-node/</loc>
-    <lastmod>2017-05-18T10:42:08+01:00</lastmod>
   </url>
   
   <url>
     <loc>https://apibot-org.github.io/blog/prototyping/</loc>
     <lastmod>2017-04-02T22:01:15+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://apibot-org.github.io/docs/eval-node/</loc>
-    <lastmod>2017-05-18T10:42:08+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://apibot-org.github.io/docs/http-request-node/</loc>
-    <lastmod>2017-05-18T17:08:08+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://apibot-org.github.io/docs/assert-node/</loc>
-    <lastmod>2017-05-20T14:34:08+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://apibot-org.github.io/docs/assert-status/</loc>
-    <lastmod>2017-05-19T10:39:08+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://apibot-org.github.io/docs/assert-body-node/</loc>
-    <lastmod>2017-05-20T14:42:08+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://apibot-org.github.io/docs/assert-header-node/</loc>
-    <lastmod>2017-05-20T14:42:08+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://apibot-org.github.io/docs/extract-header-node/</loc>
-    <lastmod>2017-05-21T16:27:08+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://apibot-org.github.io/docs/extract-body-node/</loc>
-    <lastmod>2017-05-21T12:24:08+01:00</lastmod>
   </url>
   
   <url>
@@ -92,12 +33,12 @@
   
   <url>
     <loc>https://apibot-org.github.io/</loc>
-    <lastmod>2017-05-29T18:12:08+01:00</lastmod>
+    <lastmod>2017-03-02T21:56:55+01:00</lastmod>
   </url>
   
   <url>
     <loc>https://apibot-org.github.io/blog/</loc>
-    <lastmod>2017-04-02T21:56:55+01:00</lastmod>
+    <lastmod>2017-03-02T21:56:55+01:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -113,12 +54,6 @@
   <url>
     <loc>https://apibot-org.github.io/categories/design/</loc>
     <lastmod>2017-04-02T22:01:15+01:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://apibot-org.github.io/docs/</loc>
-    <lastmod>2017-05-29T18:12:08+01:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -166,6 +101,7 @@
   
   <url>
     <loc>https://apibot-org.github.io/tags/</loc>
+    <lastmod>2017-03-02T21:56:55+01:00</lastmod>
     <priority>0</priority>
   </url>
   
