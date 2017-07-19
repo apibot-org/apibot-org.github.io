@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Docs on Apibot</title>
+    <link>https://apibot-org.github.io/docs/</link>
+    <description>Recent content in Docs on Apibot</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 29 May 2017 18:12:08 +0100</lastBuildDate>
+    
+	<atom:link href="https://apibot-org.github.io/docs/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Terminology</title>
+      <link>https://apibot-org.github.io/docs/terminology/</link>
+      <pubDate>Mon, 29 May 2017 18:12:08 +0100</pubDate>
+      
+      <guid>https://apibot-org.github.io/docs/terminology/</guid>
+      <description>Scope Is the set of variables and objects you have access to.
+The scope changes inside functions.
+Node Represent system states, in which a function is apply on the scope.
+Also known as, vertices or points.
+Edges Represent state transitions, connecting at least two nodes.
+Also known as, arrows, arcs or lines.
+Graph Represents the set of pairwise relations between nodes. A graph in this context is made up of nodes which are connected by edges.</description>
+    </item>
+    
+    <item>
+      <title>Quick start</title>
+      <link>https://apibot-org.github.io/docs/quickstart/</link>
+      <pubDate>Mon, 15 May 2017 22:35:08 +0100</pubDate>
+      
+      <guid>https://apibot-org.github.io/docs/quickstart/</guid>
+      <description>For this guide, it is necessary to have a Twitter developer account, for more information, please check Twitter developer documentation.
+Getting the Bearer Token from Twitter We will be applying Twitter documentation regarding Application-only Authentication.
+First, we will create a new scenario (graph) by pressing the button new graph on the menu bar top of the screen. If you would like, add a title and a description of your scenario.</description>
+    </item>
+    
+    <item>
+      <title>Configuration Node</title>
+      <link>https://apibot-org.github.io/docs/config-node/</link>
+      <pubDate>Mon, 15 May 2017 22:35:08 +0100</pubDate>
+      
+      <guid>https://apibot-org.github.io/docs/config-node/</guid>
+      <description>Definition The configuration node represents a function that given a scope S and a list of properties (n0,v0), (n1,v1), &amp;hellip; ,(nk,vk) returns the scope S with the new properties.
+f: Scope -&amp;gt; Scope  Parameter The required parameters are the list of properties, to add to your scope, each property has two (2) values, the name of the property and the value.
+   Parameter Description     scope The scope where the new properties will be assigned to   (n1, v1) n1: correspond to the name of the first property.</description>
+    </item>
+    
+    <item>
+      <title>JS Eval Node</title>
+      <link>https://apibot-org.github.io/docs/js-eval-node/</link>
+      <pubDate>Thu, 18 May 2017 10:42:08 +0100</pubDate>
+      
+      <guid>https://apibot-org.github.io/docs/js-eval-node/</guid>
+      <description>Definition The JS Eval node define a function in the global namespace that given a scope S returns the scope S, after applying logic to it.
+f: Scope -&amp;gt; Scope  Parameter The scope is the required parameter to which the logic will be applied.
+   Parameter Description     scope The scope where the logic will be applied to    Example For example, the scope S = {&amp;ldquo;user&amp;rdquo;: &amp;ldquo;Carlos&amp;rdquo;, &amp;ldquo;age&amp;rdquo;: 25 } and the JS eval node defines a property on the scope, telling if the user is an adult or not.</description>
+    </item>
+    
+    <item>
+      <title>Eval Node</title>
+      <link>https://apibot-org.github.io/docs/eval-node/</link>
+      <pubDate>Thu, 18 May 2017 10:42:08 +0100</pubDate>
+      
+      <guid>https://apibot-org.github.io/docs/eval-node/</guid>
+      <description>Definition The JS Eval node define a function in the global namespace that given a scope S returns the scope S, after applying logic to it.
+f: Scope -&amp;gt; Scope  Parameter The scope is the required parameter to which the logic will be applied.
+   Parameter Description     scope The scope where the logic will be applied to    Example For example, the scope S = {&amp;ldquo;user&amp;rdquo;: &amp;ldquo;Carlos&amp;rdquo;, &amp;ldquo;age&amp;rdquo;: 25 } and the JS eval node defines a property on the scope, telling if the user is an adult or not.</description>
+    </item>
+    
+    <item>
+      <title>HTTP Request Node</title>
+      <link>https://apibot-org.github.io/docs/http-request-node/</link>
+      <pubDate>Thu, 18 May 2017 17:08:08 +0100</pubDate>
+      
+      <guid>https://apibot-org.github.io/docs/http-request-node/</guid>
+      <description>Definition The HTTP Request node define a function in the global namespace that provides the HTTP request protocol implementation. The function requires an endpoint u, and a method m, other optional parameters such as a body b and a list of variables corresponding to the headers (n0,h0), (n1,h1), &amp;hellip; ,(nk,hk) can be added.
+f: f -&amp;gt; HTTP Request  Parameter Required Parameters The required parameter are the endpoint(or URL) where the HTTP request service will be called and the type of method.</description>
+    </item>
+    
+    <item>
+      <title>Assert Node</title>
+      <link>https://apibot-org.github.io/docs/assert-node/</link>
+      <pubDate>Sat, 20 May 2017 14:34:08 +0100</pubDate>
+      
+      <guid>https://apibot-org.github.io/docs/assert-node/</guid>
+      <description>Introduction The Assert node allows to evaluate the scope on a given graph. The node consists of three (3) parameters, which are the following:
+ Name, the name of the node Error Template, the message to be shown when the assert failed Function, is the text area to define an anonymous function which takes the scope as argument and returns the scope. E.g.
+(fn [scope] (assoc scope :happy true))   Below is an example of implementing the node.</description>
+    </item>
+    
+    <item>
+      <title>Assert Status Node</title>
+      <link>https://apibot-org.github.io/docs/assert-status/</link>
+      <pubDate>Fri, 19 May 2017 10:39:08 +0100</pubDate>
+      
+      <guid>https://apibot-org.github.io/docs/assert-status/</guid>
+      <description>Introduction The Assert Status node allows to evaluate the status code from a HTTP Response message. The node consists of three (3) parameters, which are the following:
+ Name, the name of the node Status From, the response status code minimum accepted value Status To, the response status code maximum accepted value  Below is an example of implementing the node.
+  Assert Status   When executing the graph and looking at the results, the assert node would evaluate if the response status code was between does values, the example below shows the result when the assert failed.</description>
+    </item>
+    
+    <item>
+      <title>Assert Body Node</title>
+      <link>https://apibot-org.github.io/docs/assert-body-node/</link>
+      <pubDate>Sat, 20 May 2017 14:42:08 +0100</pubDate>
+      
+      <guid>https://apibot-org.github.io/docs/assert-body-node/</guid>
+      <description>Introduction The Assert Body node allows to evaluate the body of a HTTP Response. The node consists of three (3) parameters, which are the following:
+ Name, the name of the node Error Template, the message to be shown when the assert failed Function, is the text area to define a function in the global namespace, with two parameters, body, the HTTP response body, and scope, of the graph. E.</description>
+    </item>
+    
+    <item>
+      <title>Assert Header Node</title>
+      <link>https://apibot-org.github.io/docs/assert-header-node/</link>
+      <pubDate>Sat, 20 May 2017 14:42:08 +0100</pubDate>
+      
+      <guid>https://apibot-org.github.io/docs/assert-header-node/</guid>
+      <description>Introduction The Assert Header node allows to evaluate the header of a HTTP Request. The node consists of three (3) parameters, which are the following:
+ Name, the name of the node Error Template, the message to be shown when the assert failed Function, is the text area to define a function in the global namespace, with two parameters, header, the HTTP request&amp;rsquo;s header, and scope, of the graph. E.</description>
+    </item>
+    
+    <item>
+      <title>Extract Header Node</title>
+      <link>https://apibot-org.github.io/docs/extract-header-node/</link>
+      <pubDate>Sun, 21 May 2017 16:27:08 +0100</pubDate>
+      
+      <guid>https://apibot-org.github.io/docs/extract-header-node/</guid>
+      <description>Introduction The Extract Header node allow us to apply logic to the header of an HTTP Request/Response. This node has three parameters which are:
+ Name, label to assign a name for the node Property Name, the variable that gets assigned the function return value Header Name, the header from which the value will be taken.
+  In the example below, we will be &amp;hellip;</description>
+    </item>
+    
+    <item>
+      <title>Extract Body Node</title>
+      <link>https://apibot-org.github.io/docs/extract-body-node/</link>
+      <pubDate>Sun, 21 May 2017 12:24:08 +0100</pubDate>
+      
+      <guid>https://apibot-org.github.io/docs/extract-body-node/</guid>
+      <description>Introduction The Extract Body node allow us to apply logic to the body of an HTTP Request/Response. This node has three parameters which are:
+ Name, label to assign a name for the node Property Name, the variable that gets assigned the function return value Function, where you define a function in the global namespace which takes the last request&amp;rsquo;s body as argument and returns a value.
+  In the example below, we will be using the twitter example (presented on the quickstart).</description>
+    </item>
+    
+  </channel>
+</rss>
