@@ -3,42 +3,7 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://apibot-org.github.io/blog/welcome/</loc>
-    <lastmod>2017-03-02T21:56:55+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://apibot-org.github.io/blog/typography/</loc>
-  </url>
-  
-  <url>
-    <loc>https://apibot-org.github.io/blog/prototyping/</loc>
-    <lastmod>2017-04-02T22:01:15+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://apibot-org.github.io/blog/messages/</loc>
-    <lastmod>2017-04-10T16:41:34+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://apibot-org.github.io/blog/collapse/</loc>
-    <lastmod>2017-04-10T16:42:50+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://apibot-org.github.io/blog/inline-style/</loc>
-    <lastmod>2017-04-02T21:56:55+01:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://apibot-org.github.io/</loc>
-    <lastmod>2017-03-02T21:56:55+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://apibot-org.github.io/blog/</loc>
-    <lastmod>2017-03-02T21:56:55+01:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -48,60 +13,11 @@
   </url>
   
   <url>
-    <loc>https://apibot-org.github.io/company/</loc>
-  </url>
-  
-  <url>
-    <loc>https://apibot-org.github.io/categories/design/</loc>
-    <lastmod>2017-04-02T22:01:15+01:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://apibot-org.github.io/tags/example/</loc>
-    <lastmod>2017-03-02T21:56:55+01:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://apibot-org.github.io/faq/</loc>
   </url>
   
   <url>
-    <loc>https://apibot-org.github.io/categories/general/</loc>
-    <lastmod>2017-03-02T21:56:55+01:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://apibot-org.github.io/tags/hugo/</loc>
-    <lastmod>2017-04-02T22:01:15+01:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://apibot-org.github.io/tags/markdown/</loc>
-    <lastmod>2017-03-02T21:56:55+01:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://apibot-org.github.io/password-recovery/</loc>
-  </url>
-  
-  <url>
-    <loc>https://apibot-org.github.io/tags/prototype/</loc>
-    <lastmod>2017-04-02T22:01:15+01:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://apibot-org.github.io/account/</loc>
-  </url>
-  
-  <url>
     <loc>https://apibot-org.github.io/tags/</loc>
-    <lastmod>2017-03-02T21:56:55+01:00</lastmod>
     <priority>0</priority>
   </url>
   
